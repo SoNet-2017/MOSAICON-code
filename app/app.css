@@ -5,11 +5,15 @@
 
 #logo {
 
-    width: 35%;
+    width: 75%;
+    height: auto;
+    margin-top: -10px;
 }
 
 #icon-menu {
     background-color: #080808;
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
 /* Navigation */
@@ -19,6 +23,7 @@
     table-layout: auto;
     float: none;
     width: 100%;
+    text-align: center;
 }
 .navbar-center > li {
     display: table-cell;
@@ -40,4 +45,29 @@
     padding-bottom: 15px;
     padding-top: 15px;
     font-size: 20px;
+}
+
+.navbar-default .navbar-center > li > a:hover {
+    color: firebrick;
+    background-color: #3c3c3c;
+}
+
+.navbar-default .navbar-center > li > a {
+
+    color: snow;
+}
+
+#iconasx {
+
+    margin-left: -10px;
+}
+
+#iconadx {
+
+    margin-right: -10px;
+}
+
+span {
+
+    width: 100%;
 }
