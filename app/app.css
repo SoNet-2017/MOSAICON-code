@@ -7,3 +7,37 @@
 
     width: 35%;
 }
+
+#icon-menu {
+    background-color: #080808;
+}
+
+/* Navigation */
+.navbar-center {
+    margin: 0 auto;
+    display: table;
+    table-layout: auto;
+    float: none;
+    width: 100%;
+}
+.navbar-center > li {
+    display: table-cell;
+    float: none;
+    text-align: center;
+}
+
+.navbar-default .navbar-center > .active > a,
+.navbar-default .navbar-center > .active > a:hover {
+    color: firebrick;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-center > li > a:hover {
+    color: #777;
+}
+
+.navbar-nav > li > a {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-size: 20px;
+}
