@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Mosaicon</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css"/>
     <link rel="stylesheet" href="app.css"/>
@@ -19,6 +19,8 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/html5_lightbox_free/html5lightbox/jquery.js"></script>
+    <script type="text/javascript" src="../lib/html5_lightbox_free/html5lightbox/html5lightbox.js"></script>
 
     <script src="app.js"></script>
 </head>
@@ -35,6 +37,7 @@
     </div>
 </header>
 
+<!-- Videogular -->
 <div ng-app="myApp">
     <div ng-controller="HomeCtrl as controller" class="videogular-container">
         <videogular vg-theme="controller.config.theme">
@@ -61,7 +64,7 @@
     </div>
 </div>
 
-<script src="../lib/bower_components/angular/angular.min.js"></script>
+<!-- <script src="../lib/bower_components/angular/angular.min.js"></script> -->
 <script src="../lib/bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="../lib/bower_components/videogular/videogular.js"></script>
 <script src="../lib/bower_components/videogular-controls/vg-controls.js"></script>
@@ -69,6 +72,91 @@
 <script src="../lib/bower_components/videogular-poster/vg-poster.js"></script>
 <script src="../lib/bower_components/videogular-buffering/vg-buffering.js"></script>
 <script src="main.js"></script>
+
+<!-- Lightbox -->
+<div class="image_tn">
+    <a href="../images/BerlinFreiheit20.jpg" class="html5lightbox" data-group="mygroup" data-thumbnail="../images/BerlinFreiheit20.jpg" title="20">
+        <img class="img-thumbnail" src="../images/BerlinFreiheit20.jpg">
+    </a>
+</div>
+<div class="image_tn">
+    <a href="../images/BerlinFreiheit19.jpg" class="html5lightbox" data-group="mygroup" data-thumbnail="../images/BerlinFreiheit19.jpg" title="21">
+        <img class="img-thumbnail" src="../images/BerlinFreiheit19.jpg">
+    </a>
+</div>
+<div class="image_tn">
+    <a href="../images/BerlinFreiheit22.jpg" class="html5lightbox" data-group="mygroup" data-thumbnail="../images/BerlinFreiheit22.jpg" title="22">
+        <img class="img-thumbnail" src="../images/BerlinFreiheit22.jpg">
+    </a>
+</div>
+
+<!-- Gallery -->
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+            </a>
+        </div>
+    </div>
+</div>
 
 <footer class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid" id="icon-menu">
