@@ -1,47 +1,88 @@
 <!DOCTYPE html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Mosaicon</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Mosaicon</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css"/>
-    <link rel="stylesheet" href="app.css"/>
+  <link rel="stylesheet" href="../lib/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css">
+  <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css"/>
+  <link rel="stylesheet" href="app.css"/>
 
-    <script src="../lib/angular/angular.min.js"></script>
-    <script src="../lib/angular/angular-route.min.js"></script>
-    <script src="../lib/angular/angular-resource.min.js"></script>
-    <script src="../lib/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
-    <script src="app.js"></script>
+  <!-- Angular -->
+  <script src="../lib/angular/angular.min.js"></script>
+  <script src="../lib/angular/angular-route.min.js"></script>
+  <script src="../lib/angular/angular-resource.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="../lib/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+  <!-- ng-map and Google maps-->
+  <script src="../lib/ng-map.min.js"></script>
+
+  <script src="app.js"></script>
+  <script src="homeView/homeView.js"></script>
+  <script src="loginView/loginView.js"></script>
+  <script src="components/authentication/authentication.js"></script>
+  <script src="components/authentication/authentication-service.js"></script>
+  <script src="components/users/users.js"></script>
+  <script src="components/users/users-service.js"></script>
+  <script src="calendarView/calendarView.js"></script>
+  <script src="calendarView/calendar.js"></script>
+  <script src="components/users/users-list-service.js"></script>
+  <script src="chatView/chatView.js"></script>
+  <script src="components/users/user-chat-service.js"></script>
+  <script src="passportView/passportView.js"></script>
+  <script src="userRegistrationView/userRegistrationView.js"></script>
+  <script src="components/file-upload/file-upload.js"></script>
+  <script src="components/file-upload/file-upload-directive.js"></script>
+  <script src="searchView/searchView.js"></script>
+  <script src="notifView/notifView.js"></script>
+  <script src="https://unpkg.com/angular-bootstrap-colorpicker@3"></script>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="../lib/ng-map.min.js"></script>
+  <script src="../lib/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js"></script>
 
 </head>
 
-<body ng-app="myApp">
+<body ng-app="myApp" ng-controller="MainCtrl">
 
 <header class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid" id="navtop">
-        <ul class="nav navbar-nav navbar-center">
-        <li><a href="#"><span class="glyphicon glyphicon-record" id="iconasx"></span></a></li>
-        <img id="logo" src="../images/MosaiconLogo.png">
-        <li><a href="#"><span class="glyphicon glyphicon-send" id="icona"></span></a></li>
-        </ul>
-    </div>
+  <div class="container-fluid" id="navtop">
+    <ul class="nav navbar-nav navbar-center">
+      <li ng-if="!isLogged()"><a class="fakelink"><span class="glyphicon glyphicon-adjust" id="iconafake1"></span></a></li>
+      <li ng-if="isLogged()"><a href="#"><span class="glyphicon glyphicon-record" id="iconasx"></span></a></li>
+      <img id="logo" src="../images/MosaiconLogo.png">
+      <li ng-if="isLogged()"><a href="#"><span class="glyphicon glyphicon-send" id="icona"></span></a></li>
+      <li ng-if="!isLogged()"><a class="fakelink"><span class="glyphicon glyphicon-adjust" id="iconafake2"></span></a></li>
+
+    </ul>
+  </div>
 </header>
 
+<div class="container-fluid" ng-view>
+
+</div>
+
+
 <footer class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid" id="icon-menu">
-        <ul class="nav navbar-nav navbar-center">
-            <li><a href="#"> <span class="glyphicon glyphicon-search"></span></a></li>
-            <li><a href="#"> <span class="glyphicon glyphicon-calendar"></span></a></li>
-            <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
-            <li><a href="#"> <span class="glyphicon glyphicon-globe"></span></a></li>
-        </ul>
-    </div>
+  <div class="container-fluid" id="icon-menu">
+    <ul class="nav navbar-nav navbar-center">
+      <li ng-class="{'active' : dati.currentView === 'search'}" ng-if="isLogged()"><a href="#!/searchView"><span class="glyphicon glyphicon-search"></span></a></li>
+      <li ng-class="{'active' : dati.currentView === 'calendar'}" ng-if="isLogged()"><a href="#!/calendarView"><span class="glyphicon glyphicon-calendar"></span></a></li>
+      <li ng-class="{'active' : dati.currentView === 'home'}"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+      <li ng-class="{'active' : dati.currentView === 'passport'}" ng-if="isLogged()"><a href="#!/passportView"><span class="glyphicon glyphicon-user"></span></a></li>
+      <li ng-class="{'active' : dati.currentView === 'notif'}" ng-if="isLogged()"><a href="#!/notifView"><span class="glyphicon glyphicon-globe"></span></a></li>
+    </ul>
+  </div>
 </footer>
 
 </body>

@@ -1,73 +1,100 @@
 #navtop {
 
-    background-color: #080808;
+  background-color: #080808;
 }
 
 #logo {
 
-    width: 75%;
-    height: auto;
-    margin-top: -10px;
+  width: 75%;
+  height: auto;
+  margin-top: -10px;
 }
 
 #icon-menu {
-    background-color: #080808;
-    margin-left: -10px;
-    margin-right: -10px;
+  background-color: #080808;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+body {
+
+  padding-top: 70px;
+  padding-bottom: 70px;
+  font-family: "Futura";
 }
 
 /* Navigation */
 .navbar-center {
-    margin: 0 auto;
-    display: table;
-    table-layout: auto;
-    float: none;
-    width: 100%;
-    text-align: center;
+  margin: 0 auto;
+  display: table;
+  table-layout: auto;
+  float: none;
+  width: 100%;
+  text-align: center;
 }
 .navbar-center > li {
-    display: table-cell;
-    float: none;
-    text-align: center;
+  display: table-cell;
+  float: none;
+  text-align: center;
 }
 
-.navbar-default .navbar-center > .active > a,
+.navbar-default .navbar-center > .active > a {
+  color: firebrick;
+  background-color: inherit;
+
+}
 .navbar-default .navbar-center > .active > a:hover {
-    color: firebrick;
-    background-color: transparent;
-}
-
-.navbar-default .navbar-center > li > a:hover {
-    color: #777;
+  color: firebrick;
+  background-color: transparent;
 }
 
 .navbar-nav > li > a {
-    padding-bottom: 15px;
-    padding-top: 15px;
-    font-size: 20px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  font-size: 20px;
 }
 
 .navbar-default .navbar-center > li > a:hover {
-    color: firebrick;
-    background-color: #3c3c3c;
+  color: firebrick;
+  background-color: #3c3c3c;
 }
 
 .navbar-default .navbar-center > li > a {
 
-    color: snow;
+  color: snow;
 }
 
 #iconasx {
 
-    margin-left: -10px;
+  margin-left: -10px;
 }
 
 #iconadx {
 
-    margin-right: -10px;
+  margin-right: -10px;
 }
+
+#iconafake1 {
+
+  margin-left: -10px;
+  visibility: hidden;
+}
+
+#iconafake2 {
+
+  margin-left: -10px;
+  visibility: hidden;
+
+}
+
+.fakelink {
+
+  visibility: hidden;
+
+}
+
 
 span {
 
-    width: 100%;
+  width: 100%;
 }
