@@ -104,10 +104,16 @@ span {
 
 @media (min-width: 320px) and (max-width: 768px) {
     .videogular-container {
-        width: 370px;
+        width: 375px;
         height: 210px;
         margin-top: 14%;
     }
+}
+
+/* Audiogular */
+.videogular-container.audio {
+    margin-top: 26.5%;
+    height: 50px;
 }
 
 /* Lightbox */
@@ -189,4 +195,5 @@ span {
 #galleryContainer {
     position: absolute;
     z-index: -1;
+    margin-bottom: 15%;
 }

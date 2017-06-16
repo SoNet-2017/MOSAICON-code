@@ -65,7 +65,6 @@
             </videogular>
         </div>
     </div>
-
     <!-- <script src="../lib/bower_components/angular/angular.min.js"></script> -->
     <script src="../lib/bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="../lib/bower_components/videogular/videogular.js"></script>
@@ -73,7 +72,7 @@
     <script src="../lib/bower_components/videogular-overlay-play/vg-overlay-play.js"></script>
     <script src="../lib/bower_components/videogular-poster/vg-poster.js"></script>
     <script src="../lib/bower_components/videogular-buffering/vg-buffering.js"></script>
-    <script src="main.js"></script>
+    <script src="myVideogular.js"></script>
 
     <!-- Lightbox -->
     <div class="container" id="lightbox">
@@ -105,6 +104,30 @@
             </div>
         </div>
     </div>
+
+    <!-- Audiogular -->
+    <div ng-app="myApp">
+        <div ng-controller="HomeCtrl as controller" class="videogular-container">
+            <videogular vg-theme="controller.config.theme.url" class="videogular-container audio">
+                <vg-media vg-src="controller.config.sources" vg-type="audio"></vg-media>
+                <vg-controls>
+                    <vg-play-pause-button></vg-play-pause-button>
+                    <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                    <vg-scrub-bar>
+                        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                    </vg-scrub-bar>
+                    <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+                    <vg-volume>
+                        <vg-mute-button></vg-mute-button>
+                    </vg-volume>
+                </vg-controls>
+            </videogular>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-sanitize.min.js"></script>
+    <script src="http://static.videogular.com/scripts/videogular/latest/videogular.js"></script>
+    <script src="http://static.videogular.com/scripts/controls/latest/vg-controls.js"></script>
 </div>
 
 <!-- Gallery -->
@@ -112,62 +135,62 @@
     <div class="row" id="grid">
         <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
             </a>
         </div>
     </div>
