@@ -3,7 +3,7 @@
 //The service implemented in this module will save the status of the user (logged or not logged) ad will save user info at first registration
 angular.module('myApp.users.usersService', [])
 
-    .factory('Users', function($firebaseArray) {
+    .factory('Users', function($firebaseArray, $firebaseAuth) {
         return {
             registerLogin: function (userId, email) {
                 //add the user to list of users and set the logged value to true
@@ -30,6 +30,20 @@ angular.module('myApp.users.usersService', [])
                     name: name,
                     surname: surname,
                     email: email,
+                    nickname: nickname,
+                    nascita: nascita,
+                    citta: citta,
+                    infos: infos,
+                    img_url: imgPath
+                });
+            },
+
+            updateUserInfo: function (userId, name, surname, nickname, nascita, citta, infos, imgPath) {
+                var user = firebase.auth().currentUser;
+                // create a synchronized array
+                user.updateProfile({
+                    name: name,
+                    surname: surname,
                     nickname: nickname,
                     nascita: nascita,
                     citta: citta,

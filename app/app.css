@@ -98,3 +98,22 @@ span {
 
   width: 100%;
 }
+
+.avatar {
+
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+
+.avatar_cont {
+
+  text-align: center;
+  margin-top: -3%;
+}
+
+.name {
+
+  margin-top: -14%;
+  text-align: center;
+}

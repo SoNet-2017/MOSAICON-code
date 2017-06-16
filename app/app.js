@@ -26,6 +26,7 @@ angular.module('myApp', [
     'myApp.fileUpload',
     'myApp.homeView',
     'myApp.searchView',
+    'myApp.editPassportView',
     'mwl.calendar'
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
