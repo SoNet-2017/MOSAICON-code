@@ -6,6 +6,9 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+  <!-- Angular Material style sheet  -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
   <link rel="stylesheet" href="../lib/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css">
   <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css"/>
   <link rel="stylesheet" href="app.css"/>
@@ -14,8 +17,6 @@
   <script src="../lib/angular/angular.min.js"></script>
   <script src="../lib/angular/angular-route.min.js"></script>
   <script src="../lib/angular/angular-resource.min.js"></script>
-  <!-- Bootstrap -->
-  <script src="../lib/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
 
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
@@ -23,31 +24,44 @@
   <!-- AngularFire -->
   <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
 
+
   <!-- ng-map and Google maps-->
   <script src="../lib/ng-map.min.js"></script>
 
+  <!-- angular bootstrap -->
+  <script src="https://unpkg.com/angular-bootstrap-colorpicker@3"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="../lib/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
+  <script src="https://rawgit.com/dwmkerr/angular-modal-service/master/dst/angular-modal-service.js"></script>
+
+
+  <!-- app.js -->
   <script src="app.js"></script>
+
+  <!-- views -->
   <script src="homeView/homeView.js"></script>
   <script src="loginView/loginView.js"></script>
+  <script src="chatView/chatView.js"></script>
+  <script src="passportView/passportView.js"></script>
+  <script src="userRegistrationView/userRegistrationView.js"></script>
+  <script src="searchView/searchView.js"></script>
+  <script src="notifView/notifView.js"></script>
+  <script src="editPassportView/editPassportView.js"></script>
+  <script src="calendarView/calendarView.js"></script>
+
+  <!-- components  -->
   <script src="components/authentication/authentication.js"></script>
   <script src="components/authentication/authentication-service.js"></script>
   <script src="components/users/users.js"></script>
   <script src="components/users/users-service.js"></script>
-  <script src="calendarView/calendarView.js"></script>
-  <script src="calendarView/calendar.js"></script>
   <script src="components/users/users-list-service.js"></script>
-  <script src="chatView/chatView.js"></script>
   <script src="components/users/user-chat-service.js"></script>
-  <script src="passportView/passportView.js"></script>
-  <script src="userRegistrationView/userRegistrationView.js"></script>
   <script src="components/file-upload/file-upload.js"></script>
   <script src="components/file-upload/file-upload-directive.js"></script>
-  <script src="searchView/searchView.js"></script>
-  <script src="notifView/notifView.js"></script>
-  <script src="https://unpkg.com/angular-bootstrap-colorpicker@3"></script>
-  <script src="calendarView/calendarView.js"></script>
-  <script src="calendarView/calendar.js"></script>
-  <script src="editPassportView/editPassportView.js"></script>
+  <script src="components/events/event-service.js"></script>
+  <script src="components/events/event-directive.js"></script>
+  <script src="components/events/event.js"></script>
 
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
