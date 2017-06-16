@@ -1,10 +1,20 @@
-#navtop {
+body {
+    font-family: Futura;
+    color: snow;
+    background-color: #080808;
+}
 
+#blocco {
+    position: fixed;
+    padding: 0px;
+}
+
+/* Navigation */
+#navtop {
     background-color: #080808;
 }
 
 #logo {
-
     width: 75%;
     height: auto;
     margin-top: -10px;
@@ -17,21 +27,17 @@
 }
 
 #iconasx {
-
     margin-left: -10px;
 }
 
 #iconadx {
-
     margin-right: -10px;
 }
 
 span {
-
     width: 100%;
 }
 
-/* Navigation */
 .navbar-center {
     margin: 0 auto;
     display: table;
@@ -98,8 +104,9 @@ span {
 
 @media (min-width: 320px) and (max-width: 768px) {
     .videogular-container {
-        width: 320px;
-        height: 180px;
+        width: 370px;
+        height: 210px;
+        margin-top: 14%;
     }
 }
 
@@ -137,9 +144,49 @@ span {
     float: left;
     margin-left: 2px;
     margin-right: 2px;
-    max-width: 32%;
 }
 .img-thumbnail {
-    width: 100%;
-    height: auto;
+    padding: 0px;
+    width: 121px;
+    height: 90.5px;
+}
+#lightbox {
+    padding: 0px;
+}
+
+/* Panel */
+#card {
+    font-size: 11px;
+    padding: 2px;
+}
+
+#cardHeader {
+    background-color: firebrick;
+    font-size: 14px;
+}
+
+#cardText {
+    margin: 0px;
+    margin-top: 1.5%;
+}
+
+/* Gallery */
+.thumbnail {
+    padding: 0px;
+    margin: 2px;
+}
+
+.thumb {
+    padding: 0px;
+}
+
+#grid {
+    padding: 0px;
+    margin-top: 120%;
+    margin-bottom: 15%;
+}
+
+#galleryContainer {
+    position: absolute;
+    z-index: -1;
 }

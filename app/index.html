@@ -16,6 +16,7 @@
 
     <!-- Bootstrap -->
     <script src="../lib/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <!-- <script src="../lib/startbootstrap-thumbnail-gallery-gh-pages/css/thumbnail-gallery.css"></script> -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -37,120 +38,134 @@
     </div>
 </header>
 
-<!-- Videogular -->
-<div ng-app="myApp">
-    <div ng-controller="HomeCtrl as controller" class="videogular-container">
-        <videogular vg-theme="controller.config.theme">
-            <vg-media vg-src="controller.config.sources"
-                      vg-tracks="controller.config.tracks">
-            </vg-media>
-            <vg-controls>
-                <vg-play-pause-button></vg-play-pause-button>
-                <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
-                <vg-scrub-bar>
-                    <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-                </vg-scrub-bar>
-                <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
-                <vg-volume>
-                    <vg-mute-button></vg-mute-button>
-                    <vg-volume-bar></vg-volume-bar>
-                </vg-volume>
-                <vg-fullscreen-button></vg-fullscreen-button>
-            </vg-controls>
+<div class="container" id="blocco">
+    <!-- Videogular -->
+    <div ng-app="myApp">
+        <div ng-controller="HomeCtrl as controller" class="videogular-container">
+            <videogular vg-theme="controller.config.theme">
+                <vg-media vg-src="controller.config.sources"
+                          vg-tracks="controller.config.tracks">
+                </vg-media>
+                <vg-controls>
+                    <vg-play-pause-button></vg-play-pause-button>
+                    <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+                    <vg-scrub-bar>
+                        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                    </vg-scrub-bar>
+                    <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+                    <vg-volume>
+                        <vg-mute-button></vg-mute-button>
+                        <vg-volume-bar></vg-volume-bar>
+                    </vg-volume>
+                    <vg-fullscreen-button></vg-fullscreen-button>
+                </vg-controls>
 
-            <vg-overlay-play></vg-overlay-play>
-            <vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
-        </videogular>
+                <vg-overlay-play></vg-overlay-play>
+                <vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
+            </videogular>
+        </div>
+    </div>
+
+    <!-- <script src="../lib/bower_components/angular/angular.min.js"></script> -->
+    <script src="../lib/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../lib/bower_components/videogular/videogular.js"></script>
+    <script src="../lib/bower_components/videogular-controls/vg-controls.js"></script>
+    <script src="../lib/bower_components/videogular-overlay-play/vg-overlay-play.js"></script>
+    <script src="../lib/bower_components/videogular-poster/vg-poster.js"></script>
+    <script src="../lib/bower_components/videogular-buffering/vg-buffering.js"></script>
+    <script src="main.js"></script>
+
+    <!-- Lightbox -->
+    <div class="container" id="lightbox">
+        <div class="image_tn">
+            <a href="../images/BerlinFreiheit20.jpg" class="html5lightbox" data-group="mygroup" data-thumbnail="../images/BerlinFreiheit20.jpg" title="20">
+                <img class="img-thumbnail" src="../images/BerlinFreiheit20.jpg">
+            </a>
+        </div>
+        <div class="image_tn">
+            <a href="../images/BerlinFreiheit19.jpg" class="html5lightbox" data-group="mygroup" data-thumbnail="../images/BerlinFreiheit19.jpg" title="21">
+                <img class="img-thumbnail" src="../images/BerlinFreiheit19.jpg">
+            </a>
+        </div>
+        <div class="image_tn">
+            <a href="../images/BerlinFreiheit22.jpg" class="html5lightbox" data-group="mygroup" data-thumbnail="../images/BerlinFreiheit22.jpg" title="22">
+                <img class="img-thumbnail" src="../images/BerlinFreiheit22.jpg">
+            </a>
+        </div>
+    </div>
+
+    <!-- Panel -->
+    <div class="container" id="card">
+        <div class="card">
+            <div class="card-header danger-color-dark white-text" id="cardHeader">
+                NotteTechno III - Cavallerizza Irreale PRESENTS 03/06
+            </div>
+            <div class="card-block">
+                <p class="card-text" id="cardText">Mad Monkeys Mood @Cavallerizza Reale, Torino w/ Seven Sins, Red Access & NoizyKnobs</p>
+            </div>
+        </div>
     </div>
 </div>
 
-<!-- <script src="../lib/bower_components/angular/angular.min.js"></script> -->
-<script src="../lib/bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="../lib/bower_components/videogular/videogular.js"></script>
-<script src="../lib/bower_components/videogular-controls/vg-controls.js"></script>
-<script src="../lib/bower_components/videogular-overlay-play/vg-overlay-play.js"></script>
-<script src="../lib/bower_components/videogular-poster/vg-poster.js"></script>
-<script src="../lib/bower_components/videogular-buffering/vg-buffering.js"></script>
-<script src="main.js"></script>
-
-<!-- Lightbox -->
-<div class="image_tn">
-    <a href="../images/BerlinFreiheit20.jpg" class="html5lightbox" data-group="mygroup" data-thumbnail="../images/BerlinFreiheit20.jpg" title="20">
-        <img class="img-thumbnail" src="../images/BerlinFreiheit20.jpg">
-    </a>
-</div>
-<div class="image_tn">
-    <a href="../images/BerlinFreiheit19.jpg" class="html5lightbox" data-group="mygroup" data-thumbnail="../images/BerlinFreiheit19.jpg" title="21">
-        <img class="img-thumbnail" src="../images/BerlinFreiheit19.jpg">
-    </a>
-</div>
-<div class="image_tn">
-    <a href="../images/BerlinFreiheit22.jpg" class="html5lightbox" data-group="mygroup" data-thumbnail="../images/BerlinFreiheit22.jpg" title="22">
-        <img class="img-thumbnail" src="../images/BerlinFreiheit22.jpg">
-    </a>
-</div>
-
 <!-- Gallery -->
-<div class="container">
-
-    <div class="row">
-
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+<div class="container" id="galleryContainer">
+    <div class="row" id="grid">
+        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
                 <img class="img-responsive" src="http://placehold.it/400x300" alt="">
             </a>
         </div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
                 <img class="img-responsive" src="http://placehold.it/400x300" alt="">
             </a>
         </div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
                 <img class="img-responsive" src="http://placehold.it/400x300" alt="">
             </a>
         </div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
                 <img class="img-responsive" src="http://placehold.it/400x300" alt="">
             </a>
         </div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
                 <img class="img-responsive" src="http://placehold.it/400x300" alt="">
             </a>
         </div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
                 <img class="img-responsive" src="http://placehold.it/400x300" alt="">
             </a>
         </div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
                 <img class="img-responsive" src="http://placehold.it/400x300" alt="">
             </a>
         </div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
                 <img class="img-responsive" src="http://placehold.it/400x300" alt="">
             </a>
         </div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
                 <img class="img-responsive" src="http://placehold.it/400x300" alt="">
             </a>
         </div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
                 <img class="img-responsive" src="http://placehold.it/400x300" alt="">
             </a>
         </div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
                 <img class="img-responsive" src="http://placehold.it/400x300" alt="">
             </a>
         </div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
                 <img class="img-responsive" src="http://placehold.it/400x300" alt="">
             </a>
