@@ -27,7 +27,8 @@ angular.module('myApp', [
     'myApp.homeView',
     'myApp.searchView',
     'myApp.editPassportView',
-    'mwl.calendar'
+    'myApp.calendar'
+
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');

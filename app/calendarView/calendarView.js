@@ -25,4 +25,40 @@ angular.module('myApp.calendarView', ['ngRoute'])
             $rootScope.dati.currentView = "calendar";
             //get the list of all the users registered to our application
             $scope.dati.userId = currentAuth.uid;
+
+            //$scope.day = moment();
+
+            // datapicker
+            $scope.myDate = new Date();
+
+            $scope.minimoDate = new Date(
+                $scope.myDate.getFullYear(),
+                $scope.myDate.getMonth(),
+                $scope.myDate.getDate()
+            );
+
+            $scope.maxDate = new Date(
+                $scope.myDate.getFullYear(),
+                $scope.myDate.getMonth() + 5,
+                $scope.myDate.getDate()
+            );
+
+            $scope.onlyWeekendsPredicate = function(date) {
+                var day = date.getDay();
+                return day === 0 || day === 6;
+            };
+
+            this.isOpen = false;
+
+            // -------------------------
+
+            // timepicker
+            $scope.oraInizio = new Date();
+            $scope.oraFine = new Date();
+
+            $scope.hstep = 1;
+            $scope.mstep = 1;
+            // -------------------------
+
+
         }]);

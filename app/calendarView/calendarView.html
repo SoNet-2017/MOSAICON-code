@@ -1,13 +1,24 @@
+<head>
+   <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script> -->
+
+    <style>
+        .md-datepicker-calendar-pane{
+            z-index: 1200}
+    </style>
+
+    <style type="text/css">
+        form.tab-form-demo .tab-pane {
+            margin: 20px 20px;
+        }
+    </style>
+
+</head>
+
+<body>
 <h1>Calendar</h1>
-<div ng-controller="ClickableEventsCtrl as vm">
-    <ng-include src="'calendarControls.html'"></ng-include>
-<mwl-calendar
-        view="calendarView"
-        view-date="viewDate"
-        events="events"
-        view-title="calendarTitle"
-        on-event-click="eventClicked(calendarEvent)"
-        on-event-times-changed="calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
-        cell-is-open="true">
-</mwl-calendar>
+<div class="container">
+<calendar selected="day"> </calendar>
 </div>
+</body>
