@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<head>
+<head xmlns="http://www.w3.org/1999/html">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Mosaicon</title>
@@ -19,7 +19,7 @@
     <!-- <script src="../lib/startbootstrap-thumbnail-gallery-gh-pages/css/thumbnail-gallery.css"></script> -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
     <script type="text/javascript" src="../lib/html5_lightbox_free/html5lightbox/jquery.js"></script>
     <script type="text/javascript" src="../lib/html5_lightbox_free/html5lightbox/html5lightbox.js"></script>
 
@@ -39,28 +39,16 @@
 </header>
 
 <div class="container" id="blocco">
+
     <!-- Videogular -->
     <div ng-app="myApp">
-        <div ng-controller="HomeCtrl as controller" class="videogular-container">
-            <videogular vg-theme="controller.config.theme">
-                <vg-media vg-src="controller.config.sources"
-                          vg-tracks="controller.config.tracks">
-                </vg-media>
-                <vg-controls>
-                    <vg-play-pause-button></vg-play-pause-button>
-                    <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
-                    <vg-scrub-bar>
-                        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-                    </vg-scrub-bar>
-                    <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
-                    <vg-volume>
-                        <vg-mute-button></vg-mute-button>
-                        <vg-volume-bar></vg-volume-bar>
-                    </vg-volume>
-                    <vg-fullscreen-button></vg-fullscreen-button>
-                </vg-controls>
+        <div ng-controller="videoCtrl as controller" class="videogular-container">
+            <videogular vg-player-ready="controller.onPlayerReady($API)" vg-update-state="controller.onUpdateState($state)" vg-theme="controller.config.theme">
+                <vg-media vg-src="controller.config.sources"></vg-media>
+                <!-- <vg-controls>
 
-                <vg-overlay-play></vg-overlay-play>
+                </vg-controls> -->
+                <vg-overlay-play><vg-overlay-play>
                 <vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
             </videogular>
         </div>
@@ -72,70 +60,144 @@
     <script src="../lib/bower_components/videogular-overlay-play/vg-overlay-play.js"></script>
     <script src="../lib/bower_components/videogular-poster/vg-poster.js"></script>
     <script src="../lib/bower_components/videogular-buffering/vg-buffering.js"></script>
-    <script src="myVideogular.js"></script>
+
 
     <!-- Lightbox -->
     <div class="container" id="lightbox">
-        <div class="image_tn">
-            <a href="../images/BerlinFreiheit20.jpg" class="html5lightbox" data-group="mygroup" data-thumbnail="../images/BerlinFreiheit20.jpg" title="20">
-                <img class="img-thumbnail" src="../images/BerlinFreiheit20.jpg">
-            </a>
-        </div>
-        <div class="image_tn">
-            <a href="../images/BerlinFreiheit19.jpg" class="html5lightbox" data-group="mygroup" data-thumbnail="../images/BerlinFreiheit19.jpg" title="21">
-                <img class="img-thumbnail" src="../images/BerlinFreiheit19.jpg">
-            </a>
-        </div>
-        <div class="image_tn">
-            <a href="../images/BerlinFreiheit22.jpg" class="html5lightbox" data-group="mygroup" data-thumbnail="../images/BerlinFreiheit22.jpg" title="22">
-                <img class="img-thumbnail" src="../images/BerlinFreiheit22.jpg">
-            </a>
+        <div class="row">
+            <div class="column">
+                <img src="../images/BerlinFreiheit20.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="image_tn">
+            </div>
+            <div class="column">
+                <img src="../images/BerlinFreiheit21.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="image_tn">
+            </div>
+            <div class="column">
+                <img src="../images/BerlinFreiheit22.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="image_tn">
+            </div>
         </div>
     </div>
+
+    <div id="myModal" class="modal">
+        <!-- Panel -->
+        <div class="container" id="infoMedia">
+            <div class="card">
+                <div class="card-header danger-color-dark white-text" id="mediaHeader">
+                    <strong>NotteTechno III</strong> MMM
+                </div>
+                <div class="card-block">
+                    <p class="card-text" id="info"><strong>@mlnmtt</strong> Che festone!!!</p>
+                </div>
+            </div>
+        </div>
+        <span class="close-cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+
+            <div class="mySlides">
+                <video src="../images/Dance%20Express.mp4" class="clip" style="width:100%;max-height: 400px" controls="false" muted>
+            </div>
+
+            <div class="mySlides">
+                <video src="../images/KandinskySynesthesia.mp4" class="clip" style="width:100%;max-height: 400px" controls="false" muted>
+            </div>
+
+            <div class="mySlides">
+                <video src="../images/MMMteaser.mp4" class="clip" style="width:100%;max-height: 400px" controls="false" muted>
+            </div>
+
+            <div class="mySlides">
+                <img src="../images/BerlinFreiheit19.jpg" style="width:100%; max-height:400px; border:solid 1px firebrick">
+            </div>
+
+            <div class="mySlides">
+                <img src="../images/BerlinFreiheit20.jpg" style="width:100%; max-height:400px; border:solid 1px firebrick">
+            </div>
+
+            <div class="mySlides">
+                <img src="../images/BerlinFreiheit21.jpg" style="width:100%; max-height:400px; border:solid 1px firebrick">
+            </div>
+
+            <div class="mySlides">
+                <img src="../images/BerlinFreiheit22.jpg" style="width:100%; max-height:400px;  border:solid 1px firebrick">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <button id="genau">
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+                <span>GENAU</span>
+            </button>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        </div>
+    </div>
+
+    <!--<script src="myModal.js"></script>
 
     <!-- Panel -->
     <div class="container" id="card">
         <div class="card">
             <div class="card-header danger-color-dark white-text" id="cardHeader">
-                NotteTechno III - Cavallerizza Irreale PRESENTS 03/06
+                <strong>NotteTechno III</strong> - Cavallerizza Irreale PRESENTS 03/06
             </div>
             <div class="card-block">
-                <p class="card-text" id="cardText"><strong>Mad Monkeys Mood</strong> @Cavallerizza Reale, Torino w/ Seven Sins, Red Access & NoizyKnobs</p>
+                <p class="card-text" id="cardText"><strong>Mad Monkeys Mood</strong></br>@Cavallerizza Reale, Torino w/</br>Seven Sins, Red Access & NoizyKnobs</p>
+                <img src="../images/adesivo.png" class="circular">
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery -->
+    <div class="container" id="galleryContainer">
+        <div id="scroll">
+            <div class="scrollbox">
+                <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(4)">
+                <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(5)">
+                <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(6)">
+                <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(7)">
+                <a class="thumbnail" href="#">
+                    <button id="plusMedia">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </a>
             </div>
         </div>
     </div>
 
     <!-- Audiogular -->
     <div ng-app="myApp">
-        <div ng-controller="HomeCtrl as controller" class="videogular-container">
-            <videogular vg-theme="controller.config.theme.url" class="videogular-container audio">
-                <vg-media vg-src="controller.config.sources" vg-type="audio"></vg-media>
+        <div ng-controller="audioCtrl as controller" class="videogular-container">
+            <videogular vg-player-ready="controller.onPlayerReady($API)" vg-update-state="controller.onUpdateState($state)" vg-update-time="controller.onUpdateTime($currentTime, $duration)" vg-theme="controller.config.theme.url" class="videogular-container audio">
+                <vg-media vg-src="controller.config.sources" vg-type="audio" id="audioTrack"></vg-media>
                 <vg-controls>
-                    <vg-play-pause-button></vg-play-pause-button>
                     <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
                     <vg-scrub-bar>
                         <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
                     </vg-scrub-bar>
                     <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
-                    <vg-volume>
-                        <vg-mute-button></vg-mute-button>
-                    </vg-volume>
                 </vg-controls>
             </videogular>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-sanitize.min.js"></script>
-    <script src="http://static.videogular.com/scripts/videogular/latest/videogular.js"></script>
-    <script src="http://static.videogular.com/scripts/controls/latest/vg-controls.js"></script>
-</div>
 
-<!-- Gallery -->
+    <script src="myVideogular.js"></script>
+
+</div> <!-- chiudi blocco -->
+
+<!-- Gallery
 <div class="container" id="galleryContainer">
     <div class="row" id="grid">
         <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
+                <img class="img-responsive" src="http://placehold.it/400x400" onclick="openGalleryModal();currentSlide(1)">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://placehold.it/400x400" onclick="openGalleryModal();currentSlide(2)">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://placehold.it/400x400" onclick="openGalleryModal();currentSlide(3)">
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-4 thumb">
@@ -173,17 +235,6 @@
                 <img class="img-responsive" src="http://placehold.it/400x400" alt="">
             </a>
         </div>
-        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
-            </a>
-        </div>
-
         <div class="col-lg-3 col-md-3 col-xs-4 thumb">
             <a class="thumbnail" href="#">
                 <button id="plusMedia">
@@ -192,7 +243,7 @@
             </a>
         </div>
     </div>
-</div>
+</div> -->
 
 <footer class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid" id="icon-menu">
