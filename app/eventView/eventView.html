@@ -1,7 +1,6 @@
-<div class="container" id="blocco">
 
     <!-- Videogular -->
-    <div ng-app="myApp">
+    <div ng-app="myApp.eventView">
         <div ng-controller="videoCtrl as controller" class="videogular-container">
             <videogular vg-player-ready="controller.onPlayerReady($API)" vg-update-state="controller.onUpdateState($state)" vg-theme="controller.config.theme">
                 <vg-media vg-src="controller.config.sources"></vg-media>
@@ -115,7 +114,7 @@
     </div>
 
     <!-- Audiogular -->
-    <div ng-app="myApp">
+    <div ng-app="myApp.eventView">
         <div ng-controller="audioCtrl as controller" class="videogular-container">
             <videogular vg-player-ready="controller.onPlayerReady($API)" vg-update-state="controller.onUpdateState($state)" vg-update-time="controller.onUpdateTime($currentTime, $duration)" vg-theme="controller.config.theme.url" class="videogular-container audio">
                 <vg-media vg-src="controller.config.sources" vg-type="audio" id="audioTrack"></vg-media>
@@ -132,7 +131,7 @@
 
    <!-- <script src="eventView/eventView.js"></script> -->
 
-</div> <!-- chiudi blocco -->
+<!-- chiudi blocco -->
 
 <!-- Gallery
 <div class="container" id="galleryContainer">

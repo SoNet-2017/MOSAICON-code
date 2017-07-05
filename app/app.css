@@ -1,14 +1,24 @@
 body {
 
-    padding-top: 70px;
-    padding-bottom: 70px;
+
     font-family: "Futura";
     color: snow;
     background-color: #080808;
 }
 
+.views {
+
+    padding-top: 70px;
+    padding-bottom: 70px;
+    position: relative;
+
+
+}
+
 #blocco {
     position: fixed;
+    padding: 0;
+
 }
 
 /* Navigation */
@@ -73,6 +83,12 @@ body {
 .navbar-default .navbar-center > li > a {
 
   color: snow;
+}
+
+.navbar-default {
+
+
+    border-color: firebrick;
 }
 
 #iconasx {
@@ -432,4 +448,11 @@ img.hover-shadow {
 
   margin-top: -14%;
   text-align: center;
+}
+
+/* Passport */
+#passport {
+
+    margin-left: 80px;
+
 }

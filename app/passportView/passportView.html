@@ -1,16 +1,19 @@
-<h1 class="avatar_cont"><img src={{dati.user.img_url}} class="avatar"></h1>
-<div class="row">
-    <div class="col-xs-12">
-        <div class="page-header">
-            <h2 class="name">{{dati.user.name}} {{dati.user.surname}}</h2>
+<div class="container-fluid views">
+    <div id="passport">
+    <h1 class="avatar_cont"><img src={{dati.user.img_url}} class="avatar"></h1>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h2 class="name">{{dati.user.name}} {{dati.user.surname}}</h2>
+            </div>
+            <p>
+                <span class="glyphicon glyphicon-envelope"></span> {{dati.user.email}}
+            </p>
+            <a href="#!/editPassportView" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog"></span></a>
+            <p>
+                <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
+            </p>
         </div>
-        <p>
-            <span class="glyphicon glyphicon-envelope"></span> {{dati.user.email}}
-        </p>
-        <a href="#!/editPassportView" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog"></span></a>
-        <p>
-            <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
-        </p>
     </div>
-
+    </div>
 </div>
