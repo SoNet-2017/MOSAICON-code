@@ -1,41 +1,49 @@
+body {
+
+    padding-top: 70px;
+    padding-bottom: 70px;
+    font-family: "Futura";
+    color: snow;
+    background-color: #080808;
+}
+
+#blocco {
+    position: fixed;
+    padding: 0px;
+}
+
+/* Navigation */
 #navtop {
 
-  background-color: #080808;
+    background-color: #080808;
 }
 
 #logo {
-
-  width: 75%;
-  height: auto;
-  margin-top: -10px;
+    width: 75%;
+    height: auto;
+    margin-top: -10px;
+    margin-left: 10px;
 }
 
 #icon-menu {
-  background-color: #080808;
-  margin-left: -10px;
-  margin-right: -10px;
-}
-
-body {
-
-  padding-top: 70px;
-  padding-bottom: 70px;
-  font-family: "Futura";
+    background-color: #080808;
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
 /* Navigation */
 .navbar-center {
-  margin: 0 auto;
-  display: table;
-  table-layout: auto;
-  float: none;
-  width: 100%;
-  text-align: center;
+    margin: 0 auto;
+    display: table;
+    table-layout: auto;
+    float: none;
+    width: 100%;
+    text-align: center;
 }
 .navbar-center > li {
-  display: table-cell;
-  float: none;
-  text-align: center;
+    display: table-cell;
+    float: none;
+    text-align: center;
 }
 
 .navbar-default .navbar-center > .active > a {
@@ -44,19 +52,23 @@ body {
 
 }
 .navbar-default .navbar-center > .active > a:hover {
-  color: firebrick;
-  background-color: transparent;
-}
-
-.navbar-nav > li > a {
-  padding-bottom: 15px;
-  padding-top: 15px;
-  font-size: 20px;
+    color: firebrick;
+    background-color: transparent;
 }
 
 .navbar-default .navbar-center > li > a:hover {
-  color: firebrick;
-  background-color: #3c3c3c;
+    color: #777;
+}
+
+.navbar-nav > li > a {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-size: 20px;
+}
+
+.navbar-default .navbar-center > li > a:hover {
+    color: firebrick;
+    background-color: #3c3c3c;
 }
 
 .navbar-default .navbar-center > li > a {
@@ -97,6 +109,308 @@ body {
 span {
 
   width: 100%;
+/* Videogular */
+.videogular-container {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+    .videogular-container {
+        width: 1170px;
+        height: 658.125px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .videogular-container {
+        width: 940px;
+        height: 528.75px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .videogular-container {
+        width: 728px;
+        height: 409.5px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .videogular-container {
+        width: 375px;
+        height: 210px;
+        margin-top: 14%;
+    }
+}
+
+/* Audiogular */
+.videogular-container.audio {
+    margin-top: 18.5%;
+    height: 50px;
+}
+
+/* Lightbox */
+.image_tn {
+    float: left;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 0px;
+    width: 121px;
+    height: 90.5px;
+}
+.img-thumbnail {
+    padding: 0px;
+    width: 121px;
+    height: 90.5px;
+}
+#lightbox {
+    padding: 0px;
+}
+.lightboxcontainer {
+    width:100%;
+    text-align:left;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.row > .column {
+    padding: 0 1px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    width: 33%;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #080808;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #080808;
+    padding: 0;
+    width: 100%;
+    height: 89%;
+    max-height: 400px;
+}
+
+video::-webkit-media-controls {
+    display: none;
+}
+
+/* The Close Button */
+.close-cursor{
+    color: white;
+    position: relative;
+    left: 325px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mySlides {
+    display: none;
+    max-height: 400px;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: relative;
+    width: auto;
+    top: 15px;
+    left: 130px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: firebrick;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+.caption-container {
+    text-align: center;
+    background-color: black;
+    padding: 2px 16px;
+    color: white;
+}
+
+img.demo {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
+}
+
+img.hover-shadow {
+    transition: 0.3s
+}
+
+.hover-shadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+#slideshow {
+    margin-top: 50%;
+    padding: 0px;
+    z-index: 2;
+}
+
+.clip {
+    border: solid 1px firebrick;
+}
+
+/* Infomedia*/
+#infoMedia {
+    position: fixed;
+    text-align: center;
+    vertical-align: middle;
+    padding-left: 29%;
+    padding-top: 2.5%;
+}
+#mediaHeader {
+    background-color: firebrick;
+    font-size: 14px;
+}
+
+/* Genau */
+#genau {
+    position: relative;
+    left: 35%;
+}
+#genau:hover {
+    color: firebrick;
+}
+
+/* Panel */
+#card {
+    font-size: 14px;
+    padding: 2px;
+}
+
+#cardHeader {
+    background-color: firebrick;
+    font-size: 14px;
+}
+
+#cardText {
+    float: left;
+    margin: 0px;
+    margin-top: 3px;
+}
+
+.circular {
+    float: right;
+    width: 60px;
+    height: 60px;
+    margin: 3px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+}
+
+/* Gallery */
+.thumbnail {
+    display: inline;
+    float: left;
+    padding: 0px;
+    margin: 2px;
+    height: 121px;
+    width: 121px;
+}
+
+.thumb {
+    padding: 0px;
+    height: 125px;
+    width: 125px;
+}
+
+#grid {
+    padding: 0px;
+    margin-top: 120%;
+    margin-bottom: 15%;
+}
+
+#galleryContainer {
+    padding: 0;
+    position: absolute;
+    z-index: 0;
+    margin-bottom: 15%;
+}
+
+#plusMedia {
+    height: 125px;
+    width: 125px;
+}
+
+.scrollbox {
+    float: left;
+    margin-right: -30000px;
+}
+
+#scroll {
+    z-index: -1;
+    width: 375px;
+    height: 125px;
+    background: #080808;
+    overflow: auto;
+    white-space: nowrap;
 }
 
 .avatar {
