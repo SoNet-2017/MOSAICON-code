@@ -9,7 +9,6 @@ body {
 
 #blocco {
     position: fixed;
-    padding: 0px;
 }
 
 /* Navigation */
@@ -108,7 +107,10 @@ body {
 
 span {
 
-  width: 100%;
+    width: 100%;
+}
+
+
 /* Videogular */
 .videogular-container {
     width: 100%;
