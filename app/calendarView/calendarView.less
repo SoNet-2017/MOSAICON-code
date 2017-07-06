@@ -10,7 +10,7 @@
   -moz-box-sizing:border-box;
 }
 
-@border-colour:#CCC;
+@border-colour:firebrick;
 calendar {
   float:left;
   display:block;
@@ -20,7 +20,7 @@ calendar {
   border:solid 1px @border-colour;
   margin-bottom:10px;
 
-  @secondary-colour:#2875C7;
+  @secondary-colour:firebrick;
   @spacing:10px;
   @icon-width:40px;
   @header-height:40px;
@@ -86,16 +86,16 @@ calendar {
       font-size:0.75em;
       text-align:center;
       .vertical-centre(30px);
-      background:white;
+      background:#080808;
       cursor:pointer;
-      color:black;
+      color:snow;
 
       &:first-child {
         border-left:none;
       }
 
       &.today {
-        background:#E3F2FF;
+        background: #333;
       }
 
       &.different-month {
