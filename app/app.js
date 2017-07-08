@@ -18,6 +18,7 @@ angular.module('myApp', [
     'myApp.loginView',
     'myApp.authentication',
     'myApp.users',
+    'myApp.calendar',
     'myApp.calendarView',
     'myApp.notifView',
     'myApp.chatView',
@@ -27,7 +28,6 @@ angular.module('myApp', [
     'myApp.homeView',
     'myApp.searchView',
     'myApp.editPassportView',
-    'myApp.calendar',
     'myApp.eventView'
 
 ])
