@@ -73,7 +73,7 @@
   <script src="components/file-upload/file-upload.js"></script>
   <script src="components/file-upload/file-upload-directive.js"></script>
   <script src="searchView/searchView.js"></script>
-  <script src="notifView/notifView.js"></script>
+  <script src="mapView/mapView.js"></script>
   <script src="https://unpkg.com/angular-bootstrap-colorpicker@3"></script>
   <script src="editPassportView/editPassportView.js"></script>
   <script src="eventView/eventView.js"></script>
@@ -109,7 +109,7 @@
       <li ng-class="{'active' : dati.currentView === 'calendar'}" ng-if="isLogged()"><a href="#!/calendarView"><span class="glyphicon glyphicon-calendar"></span></a></li>
       <li ng-class="{'active' : dati.currentView === 'home'}"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
       <li ng-class="{'active' : dati.currentView === 'passport'}" ng-if="isLogged()"><a href="#!/passportView"><span class="glyphicon glyphicon-user"></span></a></li>
-      <li ng-class="{'active' : dati.currentView === 'notif'}" ng-if="isLogged()"><a href="#!/notifView"><span class="glyphicon glyphicon-globe"></span></a></li>
+      <li ng-class="{'active' : dati.currentView === 'map'}" ng-if="isLogged()"><a href="#!/mapView"><span class="glyphicon glyphicon-globe"></span></a></li>
     </ul>
   </div>
 </footer>

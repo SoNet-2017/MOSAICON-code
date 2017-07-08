@@ -19,7 +19,7 @@ angular.module('myApp', [
     'myApp.authentication',
     'myApp.users',
     'myApp.calendarView',
-    'myApp.notifView',
+    'myApp.mapView',
     'myApp.chatView',
     'myApp.passportView',
     'myApp.userRegistrationView',
