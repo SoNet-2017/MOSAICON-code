@@ -21,6 +21,10 @@ body {
 
 }
 
+.glyphicon {
+    top: 0;
+}
+
 /* Navigation */
 #navtop {
 
@@ -389,13 +393,13 @@ img.hover-shadow {
     float: left;
     padding: 0px;
     margin: 2px;
-    height: 121px;
+    height: 180px;
     width: 121px;
 }
 
 .thumb {
     padding: 0px;
-    height: 125px;
+    height: 225px;
     width: 125px;
 }
 
@@ -406,9 +410,6 @@ img.hover-shadow {
 
 #galleryContainer {
     padding: 0;
-    position: absolute;
-    z-index: 0;
-    margin-bottom: 15%;
 }
 
 #plusMedia {
@@ -482,9 +483,12 @@ img.hover-shadow {
 #ricerca {
     padding-top: 53px;
     background-color: firebrick;
+    width: 100%;
+    height: 50px;
 }
 
 .form-control {
+    height: 50px;
     padding-left: 24px;
     color: snow;
     background-color: firebrick;
@@ -494,9 +498,38 @@ img.hover-shadow {
 
 #searchBtn {
     color: snow;
-    background-color: #080808;
+    background-color: firebrick;
     border: 0;
     border-color: firebrick;
-    margin-right: 2px;
+    margin-right: 20px;
     margin-left: 2px;
+}
+
+/* Style the tab buttons */
+.tablink {
+    background-color: #080808;
+    color: snow;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 10px;
+    font-size: 14px;
+    vertical-align: center;
+    width: 20%;
+    height: 50px;
+    margin-bottom: 1%;
+}
+
+/* Change background color of buttons on hover */
+.tablink:hover {
+    background-color: firebrick;
+}
+
+.nomeRicerca {
+    text-align: center;
+}
+
+#defaultOpen:hover {
+    background-color: firebrick;
 }
