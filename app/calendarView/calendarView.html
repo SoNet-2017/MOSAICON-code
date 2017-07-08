@@ -17,22 +17,16 @@
 </head>
 
 <body>
-<div class="views">
-<h1>Calendar</h1>
-<div class="container">
-<calendar selected="day" elenco-eventi="allEvents.elencoEventi"></calendar>
-</div>
+    <div class="container" id="calendarContainer">
+        <calendar class="calen" selected="day" elenco-eventi="allEvents.elencoEventi"></calendar>
+    </div>
 
-                <div class="row">
-                    <ul ng-repeat="evento in allEvents.elencoEventi | filter: {'data' : day.format('DD/MM/YYYY')} : true">
-                        <li>
-                            <div class="col-lg-8">
-                                &thinsp; <b>{{evento.ora_i}}</b> - {{evento.nome}} | {{evento.luogo}}
-                                <a href="#!/eventView"><button id="join" ng-if="evento.$id === '0'">Join</button></a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-</div>
+    <div class="container" id="card" ng-repeat="evento in allEvents.elencoEventi | filter: {'data' : day.format('DD/MM/YYYY')} : true">
+        <div class="card">
+            <div class="card-header danger-color-dark white-text" id="cardHeader">
+                <b>{{evento.ora_i}}</b> - {{evento.nome}} | {{evento.luogo}}
+                <a href="#!/eventView"><button id="join" ng-if="evento.$id === '0'"><img src="../images/adesivo.png"></button></a>
+            </div>
+        </div>
+    </div>
 </body>
