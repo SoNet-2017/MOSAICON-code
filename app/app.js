@@ -18,6 +18,7 @@ angular.module('myApp', [
     'myApp.loginView',
     'myApp.authentication',
     'myApp.users',
+    'myApp.events',
     'myApp.calendarView',
     'myApp.mapView',
     'myApp.chatView',

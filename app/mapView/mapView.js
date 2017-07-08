@@ -3,12 +3,12 @@
  */
 'use strict';
 
-angular.module('myApp.mapView', ['ngRoute'])
+angular.module('myApp.mapView', ['ngRoute', 'myApp.events'])
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/mapView', {
             templateUrl: 'mapView/mapView.html',
-            controller: 'notifCtrl',
+            controller: 'mapCtrl',
             resolve: {
                 // controller will not be loaded until $requireSignIn resolves
                 // Auth refers to our $firebaseAuth wrapper in the factory below
@@ -22,24 +22,26 @@ angular.module('myApp.mapView', ['ngRoute'])
         })
     }])
 
-    .controller('notifCtrl', ['$scope', '$rootScope', 'currentAuth', '$firebaseAuth', '$location', 'NgMap', function($scope, $rootScope, currentAuth, $firebaseAuth, $location, NgMap) {
-        $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzsboy0g3tTGuiXQmq7EselLJnUlL3ZuI";
-        $scope.dati={};
-        //set the variable that is used in the main template to show the active button
-        $rootScope.dati.currentView = "notif";
+    .controller('mapCtrl', ['$scope', '$rootScope', 'Event',
+        function($scope, $rootScope, Event) {
 
-        $firebaseAuth().$onAuthStateChanged(function(firebaseUser) {
-            if (firebaseUser) {
-                console.log("User is yet signed in as:", firebaseUser.uid);
-            } else {
-                $location.path("/loginView");
-            }
-        });
+            $scope.dati={};
+            $scope.dati.vm = this;
+            $scope.dati.vm.positions = [];
 
-        NgMap.getMap().then(function(map) {
-            console.log(map.getCenter());
-            console.log('markers', map.markers);
-            console.log('shapes', map.shapes);
+            $rootScope.dati.currentView = "map";
+
+            $scope.dati.events = Event.getData();
+            $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdX2NDbEB1g1-13kcdDPkAY3lpUggnPPE";
+            $scope.dati.events.$loaded().then(function() {
+                console.log($scope.dati.events.length);
+                for (var i = 0; i < $scope.dati.events.length; i++) {
+                    var lat = 45.071087 + (Math.random() / 100);
+                    var lng = 7.686567 + (Math.random() / 100);
+                    $scope.dati.vm.positions.push({lat: lat, lng: lng});
+                }
+                console.log("vm.positions", $scope.dati.vm.positions);
+
         });
 
     }]);
