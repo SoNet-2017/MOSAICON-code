@@ -8,7 +8,7 @@
 
 angular.module('myApp.calendar', [
     'myApp.calendar.calendar-directive',
-    'myApp.calendar.calendar-service'
+    'myApp.calendar.calendarService'
 ])
 
     .value('version', '0.1');

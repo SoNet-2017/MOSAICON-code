@@ -4,14 +4,14 @@
 
 angular.module('myApp.calendar.calendar-directive', [])
 
-.directive("calendar", function() {
+.directive("calendar", function(calendarService, $filter) {
     return {
         restrict: "E",
         templateUrl: "../app/calendarView/template/calendar.html",
         scope: {
-            selected: "="
-           /* t: "=",
-            elencoEventi: "=" */
+            selected: "=",
+           //t: "=",
+            elencoEventi: "="
         },
 
         link: function(scope) {
@@ -61,7 +61,7 @@ angular.module('myApp.calendar.calendar-directive', [])
 
 
 
-            var allEvents = calendar-service.getAllEvents();
+            var allEvents = calendarService.getAllEvents();
 
             scope.checkEvents = function (evento) {
 

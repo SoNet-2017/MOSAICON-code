@@ -4,10 +4,10 @@
 
 'use strict'
 
-angular.module('myApp.calendar.calendar-service', [
+angular.module('myApp.calendar.calendarService', [
 ])
 
-.factory('calendar-service', function commonProp($firebaseArray, $firebaseObject, CommonProp) {
+.factory('calendarService', function commonProp($firebaseArray, $firebaseObject) {
 
     return {
         getEventInfo: function(id) {
