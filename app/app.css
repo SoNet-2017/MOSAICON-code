@@ -400,9 +400,8 @@ img.hover-shadow {
 }
 
 #grid {
-    padding: 0px;
-    margin-top: 120%;
-    margin-bottom: 15%;
+    padding: 0;
+    margin: 0;
 }
 
 #galleryContainer {
@@ -477,4 +476,27 @@ img.hover-shadow {
     padding-left: 0;
     width: 100%;
     height: auto;
+}
+
+/* Search */
+#ricerca {
+    padding-top: 53px;
+    background-color: firebrick;
+}
+
+.form-control {
+    padding-left: 24px;
+    color: snow;
+    background-color: firebrick;
+    border-radius: 0;
+    border: 1px solid firebrick;
+}
+
+#searchBtn {
+    color: snow;
+    background-color: #080808;
+    border: 0;
+    border-color: firebrick;
+    margin-right: 2px;
+    margin-left: 2px;
 }
