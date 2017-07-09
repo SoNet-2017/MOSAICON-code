@@ -4,12 +4,14 @@
 
 angular.module('myApp.calendar.calendar-directive', [])
 
-.directive("calendar", function() {
+.directive("calendar", function(calendarService, $filter) {
     return {
         restrict: "E",
         templateUrl: "../app/calendarView/template/calendar.html",
         scope: {
-            selected: "="
+            selected: "=",
+           //t: "=",
+            elencoEventi: "="
         },
 
         link: function(scope) {
@@ -59,8 +61,18 @@ angular.module('myApp.calendar.calendar-directive', [])
 
 
 
-            //var tuttiGliEventi = eventiService.getAllEvent();
+            var allEvents = calendarService.getAllEvents();
 
+            scope.checkEvents = function (evento) {
+
+                var found = $filter('filter')(allEvents, {data: evento.date.format('DD/MM/YYYY')});
+
+                if (found.length) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
 
         }
     };

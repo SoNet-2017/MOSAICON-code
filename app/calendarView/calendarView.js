@@ -18,8 +18,8 @@ angular.module('myApp.calendarView', ['ngRoute'])
             }
         })
     }])
-    .controller('calendarViewCtrl', ['$scope', '$rootScope', '$routeParams', 'currentAuth',
-        function($scope, $rootScope, $routeParams, currentAuth) {
+    .controller('calendarViewCtrl', ['$scope', '$rootScope', '$filter', '$routeParams', 'currentAuth','$firebaseObject', '$firebaseArray', 'calendarService',
+        function($scope, $rootScope, $filter, $routeParams, currentAuth, $firebaseObject, $firebaseArray, calendarService) {
             $scope.dati = {};
             //set the variable that is used in the main template to show the active button
             $rootScope.dati.currentView = "calendar";
@@ -28,5 +28,23 @@ angular.module('myApp.calendarView', ['ngRoute'])
 
             $scope.day = moment();
 
+
+            $scope.allEvents = {};
+            $scope.allEvents.elencoEventi = calendarService.getAllEvents();
+
+            //$scope.event = {};
+
+            $scope.servizio = calendarService;
+
+            $scope.selectedEvent = {};
+
+            $scope.viewEvento = function(id) {
+                $scope.selectedEvent = calendarService.getEventInfo(id);
+                console.log($scope.day);
+            };
+
+
+
+            //$scope.t = {};
 
         }]);
