@@ -39,7 +39,7 @@ angular.module('myApp.userRegistrationView', ['ngRoute'])
                             var uploadTask = $scope.storage.$put($scope.fileToUpload);
                             uploadTask.$complete(function (snapshot) {
                                 $scope.user.imgPath = snapshot.downloadURL;
-                                Users.registerNewUserInfo(userId, $scope.user.name, $scope.user.surname, $scope.user.email, $scope.user.nickname, $scope.user.nascita, $scope.user.citta, $scope.user.infos, $scope.user.imgPath);
+                                Users.registerNewUserInfo(userId, $scope.user.name, $scope.user.surname, $scope.user.email, $scope.user.nickname, $scope.user.age, $scope.user.citta, $scope.user.infos, $scope.user.imgPath);
 
                                 Users.registerLogin(userId, $scope.user.email);
                                 // login successful: redirect

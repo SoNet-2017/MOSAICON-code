@@ -22,7 +22,7 @@ angular.module('myApp.users.usersService', [])
                     logged: false
                 });
             },
-            registerNewUserInfo: function (userId, name, surname, email, nickname, nascita, citta, infos, imgPath) {
+            registerNewUserInfo: function (userId, name, surname, email, nickname, age, citta, infos, imgPath) {
                 //add the user to list of users and set the logged value to true
                 var ref = firebase.database().ref().child("users").child(userId);
                 // create a synchronized array
@@ -31,33 +31,35 @@ angular.module('myApp.users.usersService', [])
                     surname: surname,
                     email: email,
                     nickname: nickname,
-                    nascita: nascita,
+                    age: age,
                     citta: citta,
                     infos: infos,
                     img_url: imgPath
                 });
             },
 
-            updateUserInfo: function (userId, name, surname, nickname, citta, infos, imgPath) {
+            updateUserInfo: function (userId, name, surname, nickname, age, citta, infos, imgPath) {
                 var ref = firebase.database().ref().child("users").child(userId);
 
                 ref.update({
                     name: name,
                     surname: surname,
                     nickname: nickname,
+                    age: age,
                     citta: citta,
                     infos: infos,
                     img_url: imgPath
                 });
             },
 
-            updateUserInfo_noPic: function (userId, name, surname, nickname, citta, infos) {
+            updateUserInfo_noPic: function (userId, name, surname, nickname, age, citta, infos) {
                 var ref = firebase.database().ref().child("users").child(userId);
 
                 ref.update({
                     name: name,
                     surname: surname,
                     nickname: nickname,
+                    age: age,
                     citta: citta,
                     infos: infos
                 });

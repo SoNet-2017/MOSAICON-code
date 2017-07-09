@@ -43,14 +43,14 @@ angular.module('myApp.editPassportView', ['ngRoute'])
                                     uploadTask.$complete(function (snapshot) {
                                         $scope.dati.user.imgPath = snapshot.downloadURL;
 
-                                        Users.updateUserInfo(userId, $scope.dati.user.name, $scope.dati.user.surname, $scope.dati.user.nickname, $scope.dati.user.citta, $scope.dati.user.infos, $scope.dati.user.imgPath);
+                                        Users.updateUserInfo(userId, $scope.dati.user.name, $scope.dati.user.surname, $scope.dati.user.nickname, $scope.dati.user.age, $scope.dati.user.citta, $scope.dati.user.infos, $scope.dati.user.imgPath);
 
                                     });
                                 }
 
                                 else {
 
-                                    Users.updateUserInfo_noPic(userId, $scope.dati.user.name, $scope.dati.user.surname, $scope.dati.user.nickname, $scope.dati.user.citta, $scope.dati.user.infos);
+                                    Users.updateUserInfo_noPic(userId, $scope.dati.user.name, $scope.dati.user.surname, $scope.dati.user.nickname, $scope.dati.user.age, $scope.dati.user.citta, $scope.dati.user.infos);
 
                                 }
 

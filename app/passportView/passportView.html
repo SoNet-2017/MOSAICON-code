@@ -6,13 +6,20 @@
             <div class="page-header">
                 <h2 class="name">{{dati.user.name}} {{dati.user.surname}}</h2>
             </div>
-            <p>
-                <span class="glyphicon glyphicon-envelope"></span> {{dati.user.email}}
-            </p>
-            <a href="#!/editPassportView" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog"></span></a>
-            <p>
-                <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
-            </p>
+            <div class="container-fluid">
+                <h3>@{{dati.user.nickname}}</h3>
+                <h4>Actually located in {{dati.user.citta}}</h4>
+                <h5>Age: {{dati.user.age}}</h5>
+                <h6>About me: <p>{{dati.user.infos}}</p></h6>
+                <p>
+                    <span class="glyphicon glyphicon-envelope"></span> {{dati.user.email}}
+                </p>
+                <a href="#!/editPassportView" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog"></span></a>
+                <p>
+                    <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
+                </p>
+            </div>
+
         </div>
     </div>
     </div>
