@@ -426,10 +426,21 @@ img.hover-shadow {
     border: 1px solid firebrick;
 }
 
+#commento {
+    height: 50px;
+    background-color: #080808;
+    color: snow;
+    border-color: firebrick;
+    padding-top: 6px;
+    padding-left: 18px;
+}
+
 #modalMedia {
-    margin-top: 53px;
     height: auto;
     max-height: inherit;
+    top: 103px;
+    bottom: 103px;
+    padding-bottom: 103px;
 }
 
 #addMedia {
@@ -443,7 +454,7 @@ img.hover-shadow {
 
 #modalHeader {
     padding: 0;
-    height: 50px;
+    height: 99px;
     width: 100%;
     position: fixed;
     top: 53px;
@@ -454,6 +465,57 @@ img.hover-shadow {
 
 #X {
     position: fixed;
+}
+
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay {overflow-y: auto;}
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
 }
 
 .scrollbox {

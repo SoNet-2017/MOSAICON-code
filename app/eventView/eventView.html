@@ -69,9 +69,19 @@
         <div class="container" id="modalHeader">
             <file-upload on-change="$ctrl.onChange" id="addMedia"></file-upload>
             <span class="close-cursor" id="X" onclick="closeSingleModal()">&times;</span>
+            <textarea class="form-control" id="commento" rows="1" id="comment">Tell Your Story</textarea>
         </div>
-        <div class="modal-content" id="modalMedia">
+        <erl class="modal-content" id="modalMedia">
             <img ng-repeat="content in dati.event.content" ng-src="{{content.url}}" style="width:100%; max-height:400px; border:solid 1px firebrick">
+            <div id="myNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                    <a href="#">Nome</a>
+                    <a href="#">Follower</a>
+                    <a href="#">Like</a>
+                </div>
+            </div>
+            <span id="menu" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
         </div>
     </div>
 
