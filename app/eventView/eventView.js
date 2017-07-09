@@ -168,6 +168,10 @@ function openModal() {
     document.getElementById('myModal').style.display = "block";
 }
 
+function openSingleModal() {
+    document.getElementById('mySingleModal').style.display = "block";
+}
+
 function closeModal() {
     var vids = $("video.clip");
     $.each(vids, function() {
@@ -175,6 +179,10 @@ function closeModal() {
         //this.pause();
     });
     document.getElementById('myModal').style.display = "none";
+}
+
+function closeSingleModal () {
+    document.getElementById('mySingleModal').style.display = "none";
 }
 
 function openGalleryModal() {

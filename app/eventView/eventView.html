@@ -55,23 +55,23 @@
                 <video src="../images/MMMteaser.mp4" class="clip" style="width:100%;max-height: 400px" controls="false" muted />
             </div>
 
-            <div class="mySlides" ng-repeat="content in dati.event.content">
-                <img ng-src="{{content.url}}" style="width:100%; max-height:400px; border:solid 1px firebrick">
-            </div>
-
-            <div class="mySlides">
-                <button class="plusMedia" onclick="addMedia">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </button>
-            </div>
-
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <button id="genau" onclick="addMedia">
+            <button id="genau" onclick="likeMedia">
                 <span class="glyphicon glyphicon-thumbs-up"></span>
                 <span>GENAU</span>
             </button>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
+        </div>
+    </div>
+
+    <div id="mySingleModal" class="modal" ng-controller="eventViewCtrl">
+        <div class="container" id="modalHeader">
+            <file-upload on-change="$ctrl.onChange" id="addMedia"></file-upload>
+            <span class="close-cursor" id="X" onclick="closeSingleModal()">&times;</span>
+        </div>
+        <div class="modal-content" id="modalMedia">
+            <img ng-repeat="content in dati.event.content" ng-src="{{content.url}}" style="width:100%; max-height:400px; border:solid 1px firebrick">
         </div>
     </div>
 
@@ -95,7 +95,7 @@
         <div id="scroll">
             <div class="scrollbox">
 
-                <img class="thumbnail" ng-repeat="content in dati.event.content" ng-src="{{content.url}}" onclick="openModal();currentSlide(4)">
+                <img class="thumbnail" ng-repeat="content in dati.event.content" ng-src="{{content.url}}"  onclick="openSingleModal()">
                 <!-- <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(5)">
                 <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(6)">
                 <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(7)"> -->
