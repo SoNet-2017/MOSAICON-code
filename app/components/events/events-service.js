@@ -6,7 +6,7 @@
 
 angular.module('myApp.events.eventsService', [])
 
-    .factory('Event', function($firebaseArray) {
+    .factory('Events', function($firebaseArray) {
         var eventsService = {
             getData: function () {
                 var ref = firebase.database().ref().child("events");

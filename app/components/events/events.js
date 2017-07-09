@@ -5,7 +5,8 @@
 
 //declare the module that will act as parent of all the services dedicated to retrieve/save information about the pizzas
 angular.module('myApp.events', [
-    'myApp.events.eventsService'
+    'myApp.events.eventsService',
+    'myApp.events.oneEventService'
 ])
 
     .value('version', '0.1');
