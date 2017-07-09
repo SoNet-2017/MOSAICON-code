@@ -10,12 +10,13 @@ angular.module('myApp.eventView',
         "com.2fdevs.videogular",
         "com.2fdevs.videogular.plugins.controls",
         "com.2fdevs.videogular.plugins.overlayplay",
-        "com.2fdevs.videogular.plugins.poster"
+        "com.2fdevs.videogular.plugins.poster",
+        'myApp.events'
     ]
 )
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/eventView', {
+        $routeProvider.when('/eventView/:eventId', {
             templateUrl: 'eventView/eventView.html',
             resolve: {
                 // controller will not be loaded until $requireSignIn resolves
@@ -29,6 +30,26 @@ angular.module('myApp.eventView',
             }
         })
     }])
+
+    .controller('eventViewCtrl', ['$scope', '$rootScope', '$routeParams', 'oneEvent',
+        function ($scope, $rootScope, $routeParams, oneEvent) {
+
+            $scope.dati = {};
+            $scope.dati.currentView = "calendar";
+
+            $scope.dati.event = oneEvent.getOneEvent($routeParams.eventId);
+            $scope.dati.event.$loaded().then(function() {
+
+                $scope.dati.event.content = oneEvent.getContent($routeParams.eventId);
+
+                $scope.dati.event.content.$loaded().then(function() {
+
+                    console.log($scope.dati.event.content.length);
+
+                });
+
+                });
+        }])
 
     /* Audiogular */
    .controller('audioCtrl',
