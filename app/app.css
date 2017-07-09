@@ -16,7 +16,7 @@ body {
 }
 
 #blocco {
-    position: fixed;
+    /*position: fixed;*/
     padding: 0;
 
 }
@@ -450,12 +450,12 @@ img.hover-shadow {
   text-align: center;
 }
 
-/* Passport */
+/* Passport
 #passport {
 
     margin-left: 80px;
 
-}
+} */
 
 /* Gmaps */
 .Gmap {

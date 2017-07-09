@@ -38,17 +38,28 @@ angular.module('myApp.users.usersService', [])
                 });
             },
 
-            updateUserInfo: function (userId, name, surname, nickname, nascita, citta, infos, imgPath) {
-                var user = firebase.auth().currentUser;
-                // create a synchronized array
-                user.updateProfile({
+            updateUserInfo: function (userId, name, surname, nickname, citta, infos, imgPath) {
+                var ref = firebase.database().ref().child("users").child(userId);
+
+                ref.update({
                     name: name,
                     surname: surname,
                     nickname: nickname,
-                    nascita: nascita,
                     citta: citta,
                     infos: infos,
                     img_url: imgPath
+                });
+            },
+
+            updateUserInfo_noPic: function (userId, name, surname, nickname, citta, infos) {
+                var ref = firebase.database().ref().child("users").child(userId);
+
+                ref.update({
+                    name: name,
+                    surname: surname,
+                    nickname: nickname,
+                    citta: citta,
+                    infos: infos
                 });
             }
         };

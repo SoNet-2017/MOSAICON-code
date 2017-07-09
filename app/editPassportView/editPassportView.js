@@ -19,13 +19,13 @@ angular.module('myApp.editPassportView', ['ngRoute'])
         })
     }])
 
-    .controller('editPassportCtrl', ['$scope', '$rootScope', 'UsersChatService', 'Auth','$firebaseStorage', '$location', 'Users', '$firebaseAuth', function($scope, $rootScope, UsersChatService, Auth, $firebaseStorage, $location, Users, $firebaseAuth) {
+    .controller('editPassportCtrl', ['$scope', '$rootScope', 'UsersChatService', 'Auth','$firebaseStorage', '$location', 'Users', '$firebaseAuth',
+        function($scope, $rootScope, UsersChatService, Auth, $firebaseStorage, $location, Users, $firebaseAuth) {
         $scope.dati={};
         var userId = $firebaseAuth().$getAuth().uid;
         //set the variable that is used in the main template to show the active button
         $rootScope.dati.currentView = "passport";
         $scope.dati.user = UsersChatService.getUserInfo(userId);
-        var path = $scope.dati.user.img_url;
         $scope.fileToUpload = null;
         $scope.dati.user.imgPath= "";
         $rootScope.dati.currentView = "passport";
@@ -43,14 +43,14 @@ angular.module('myApp.editPassportView', ['ngRoute'])
                                     uploadTask.$complete(function (snapshot) {
                                         $scope.dati.user.imgPath = snapshot.downloadURL;
 
-                                        Users.updateUserInfo(userId, $scope.dati.user.name, $scope.dati.user.surname, $scope.dati.user.nickname, $scope.dati.user.nascita, $scope.dati.user.citta, $scope.dati.user.infos, $scope.dati.user.imgPath);
+                                        Users.updateUserInfo(userId, $scope.dati.user.name, $scope.dati.user.surname, $scope.dati.user.nickname, $scope.dati.user.citta, $scope.dati.user.infos, $scope.dati.user.imgPath);
 
                                     });
                                 }
 
                                 else {
 
-                                    Users.updateUserInfo(userId, $scope.dati.user.name, $scope.dati.user.surname, $scope.dati.user.nickname, $scope.dati.user.nascita, $scope.dati.user.citta, $scope.dati.user.infos, path);
+                                    Users.updateUserInfo_noPic(userId, $scope.dati.user.name, $scope.dati.user.surname, $scope.dati.user.nickname, $scope.dati.user.citta, $scope.dati.user.infos);
 
                                 }
 
