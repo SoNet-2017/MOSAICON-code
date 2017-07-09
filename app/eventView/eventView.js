@@ -39,16 +39,11 @@ angular.module('myApp.eventView',
 
             $scope.dati.event = oneEvent.getOneEvent($routeParams.eventId);
             $scope.dati.event.$loaded().then(function() {
-
                 $scope.dati.event.content = oneEvent.getContent($routeParams.eventId);
-
                 $scope.dati.event.content.$loaded().then(function() {
-
                     console.log($scope.dati.event.content.length);
-
                 });
-
-                });
+            });
         }])
 
     /* Audiogular */

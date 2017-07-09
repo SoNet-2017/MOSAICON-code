@@ -55,24 +55,18 @@
                 <video src="../images/MMMteaser.mp4" class="clip" style="width:100%;max-height: 400px" controls="false" muted />
             </div>
 
-            <div class="mySlides">
-                <img src="../images/BerlinFreiheit19.jpg" style="width:100%; max-height:400px; border:solid 1px firebrick">
+            <div class="mySlides" ng-repeat="content in dati.event.content">
+                <img ng-src="{{content.url}}" style="width:100%; max-height:400px; border:solid 1px firebrick">
             </div>
 
             <div class="mySlides">
-                <img src="../images/BerlinFreiheit20.jpg" style="width:100%; max-height:400px; border:solid 1px firebrick">
-            </div>
-
-            <div class="mySlides">
-                <img src="../images/BerlinFreiheit21.jpg" style="width:100%; max-height:400px; border:solid 1px firebrick">
-            </div>
-
-            <div class="mySlides">
-                <img src="../images/BerlinFreiheit22.jpg" style="width:100%; max-height:400px;  border:solid 1px firebrick">
+                <button class="plusMedia" onclick="addMedia">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
             </div>
 
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <button id="genau">
+            <button id="genau" onclick="addMedia">
                 <span class="glyphicon glyphicon-thumbs-up"></span>
                 <span>GENAU</span>
             </button>
@@ -87,7 +81,7 @@
     <div class="container" id="card" ng-controller="eventViewCtrl">
         <div class="card">
             <div class="card-header danger-color-dark white-text" id="cardHeader">
-                <p><strong>{{dati.event.nome}}</strong> - {{dati.event.luogo}}</p>
+                <p id="cardTitle"><strong>{{dati.event.nome}}</strong> - {{dati.event.luogo}}</p>
             </div>
             <div class="card-block">
                 <p class="card-text" id="cardText"><strong>{{dati.event.org}}</strong></br>{{dati.event.luogo}}</br>{{dati.event.lineup}}</p>
@@ -107,7 +101,7 @@
                 <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(7)"> -->
 
                     <a class="thumbnail" href="#">
-                    <button id="plusMedia">
+                    <button class="plusMedia" onclick="addMedia">
                         <span class="glyphicon glyphicon-plus"></span>
                     </button>
                 </a>
