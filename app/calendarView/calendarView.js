@@ -43,6 +43,8 @@ angular.module('myApp.calendarView', ['ngRoute'])
                 console.log($scope.day);
             };
 
+
+
             //$scope.t = {};
 
         }]);
