@@ -19,7 +19,10 @@ body {
 #blocco {
    position: fixed;
     padding: 0;
+}
 
+.glyphicon {
+    top: 0;
 }
 
 a {
@@ -426,6 +429,10 @@ img.hover-shadow {
     width: 121px;
 }
 
+.tall {
+    height: 180px;
+}
+
 #grid {
     padding: 0px;
     margin-top: 120%;
@@ -632,4 +639,71 @@ img.hover-shadow {
     padding-left: 0;
     width: 100%;
     height: auto;
+}
+
+/* Search */
+#ricerca {
+    padding-top: 53px;
+    background-color: firebrick;
+    width: 100%;
+    height: 50px;
+}
+
+.form-control {
+    height: 50px;
+    padding-left: 24px;
+    color: snow;
+    background-color: firebrick;
+    border-radius: 0;
+    border: 1px solid firebrick;
+}
+
+#searchBtn {
+    color: snow;
+    background-color: firebrick;
+    border: 0;
+    border-color: firebrick;
+    margin-right: 20px;
+    margin-left: 2px;
+}
+
+/* Style the tab buttons */
+.tablink {
+    background-color: #080808;
+    color: snow;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 15px 35px;
+    font-size: 14px;
+    vertical-align: center;
+    width: 25%;
+    height: 50px;
+    margin-bottom: 1%;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+#filterIcon:hover {
+    background-color: #080808;
+}
+
+/* Change background color of buttons on hover */
+.tablink:hover {
+    background-color: firebrick;
+}
+
+.nomeRicerca {
+    text-align: center;
+}
+
+#defaultOpen:hover {
+    background-color: firebrick;
 }
