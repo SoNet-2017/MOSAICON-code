@@ -30,7 +30,7 @@
 
     <div id="myModal" class="modal" ng-controller="eventViewCtrl">
         <!-- Panel -->
-        <div class="container" id="infoMedia">
+        <!--<div class="container" id="infoMedia">
             <div class="card">
                 <div class="card-header danger-color-dark white-text" id="mediaHeader">
                     <strong>NotteTechno III</strong>
@@ -39,7 +39,7 @@
                     <p class="card-text" id="info"><strong>@mlnmtt</strong> Che festone!!!</p>
                 </div>
             </div>
-        </div>
+        </div> -->
         <span class="close-cursor" onclick="closeModal()">&times;</span>
         <div class="modal-content">
 
@@ -56,10 +56,7 @@
             </div>
 
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <button id="genau" onclick="likeMedia">
-                <span class="glyphicon glyphicon-thumbs-up"></span>
-                <span>GENAU</span>
-            </button>
+            <a href="#" id="usercomment">Met</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
         </div>
@@ -67,22 +64,27 @@
 
     <div id="mySingleModal" class="modal" ng-controller="eventViewCtrl">
         <div class="container" id="modalHeader">
-            <file-upload on-change="$ctrl.onChange" id="addMedia"></file-upload>
+
+            <span id="menu" style="font-size:30px;cursor:pointer" onclick="openNav()">+</span>
             <span class="close-cursor" id="X" onclick="closeSingleModal()">&times;</span>
-            <textarea class="form-control" id="commento" rows="1" id="comment">Tell Your Story</textarea>
+
         </div>
-        <erl class="modal-content" id="modalMedia">
-            <img ng-repeat="content in dati.event.content" ng-src="{{content.url}}" style="width:100%; max-height:400px; border:solid 1px firebrick">
-            <div id="myNav" class="overlay">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <div class="overlay-content">
-                    <a href="#">Nome</a>
-                    <a href="#">Follower</a>
-                    <a href="#">Like</a>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <file-upload on-change="$ctrl.onChange" id="addMedia"></file-upload>
+                <div class="form-group">
+                    <textarea maxlength="150" type="text" class="form-control" id="commento" placeholder="Tell your Experience"></textarea>
                 </div>
+
             </div>
-            <span id="menu" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
         </div>
+        <div ng-repeat="content in dati.event.content track by $index" class="modal-content" id="modalMedia">
+            <img ng-src="{{content.url}}" style="width:100%; max-height:400px; border:solid 1px firebrick">
+            <a href="#">{{content.user_id}}</a>
+            <p id="storie" style="max-height: 100px">{{content.comment}}</p>
+        </div>
+        <div id="spazioBottom" style="height: 103px"></div>
     </div>
 
     <!--<script src="myModal.js"></script>
@@ -110,8 +112,8 @@
                 <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(6)">
                 <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(7)"> -->
 
-                    <a class="thumbnail" href="#">
-                    <button class="plusMedia" onclick="addMedia">
+                <a class="thumbnail" onclick="openSingleModal(), openNav()">
+                    <button class="plusMedia">
                         <span class="glyphicon glyphicon-plus"></span>
                     </button>
                 </a>
