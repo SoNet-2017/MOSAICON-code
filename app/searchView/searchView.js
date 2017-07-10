@@ -22,12 +22,14 @@ angular.module('myApp.searchView', ['ngRoute'])
         })
     }])
 
-    .controller('searchCtrl', ['$scope', '$rootScope', 'currentAuth', '$firebaseAuth', '$location', 'eventsService', 'userChatService',
-        function($scope, $rootScope, currentAuth, $firebaseAuth, $location, eventsService, userChatService) {
+    .controller('searchCtrl', ['$scope', '$rootScope', 'currentAuth', '$firebaseAuth', '$location', 'Events', 'UserList',
+        function($scope, $rootScope, currentAuth, $firebaseAuth, $location, Events, UserList) {
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
         $rootScope.dati.currentView = "search";
-        $scope.dati.events = eventsService.getAllEvents();
+        $scope.dati.events = Events.getData();
+        $scope.dati.users = UserList.getListOfUsers();
+
         /*
         $scope.filterClub = function () {
             events.style.display = block;
@@ -47,6 +49,29 @@ angular.module('myApp.searchView', ['ngRoute'])
             }
         });
     }]);
+
+function showEvent() {
+    var eventGrid = document.getElementsByClassName("eventGrid");
+    var clubbersGrid = document.getElementsByClassName("userGrid");
+    //var DJsGrid = document.getElementById("superuserGrid");
+    for (var i=0; i<eventGrid.length; i++) {
+        eventGrid[i].style.display = "block";
+    }
+    for (var j=0; j<clubbersGrid.length; j++) {
+        clubbersGrid[j].style.display = "none";
+    }
+}
+
+function showClubbers() {
+    var eventGrid = document.getElementsByClassName("eventGrid");
+    var clubbersGrid = document.getElementsByClassName("userGrid");
+    for (var i=0; i<eventGrid.length; i++) {
+        eventGrid[i].style.display = "none";
+    }
+    for (var j=0; j<clubbersGrid.length; j++) {
+        clubbersGrid[j].style.display = "block";
+    }
+}
 
 function openCity(evt, cityName) {
     // Declare all variables
