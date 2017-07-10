@@ -5,24 +5,25 @@
       </span>
 </div>
 
-<button class="tablink" onclick="showEvent()" id="defaultOpen">events</button>
+<button class="tablink active" onclick="showAll()" id="defaultOpen">all</button>
+<button class="tablink" onclick="showEvent()">events</button>
 <button class="tablink" onclick="showClubbers()">clubbers</button>
 <button class="tablink" onclick="showDJs()">DJs</button>
 <span class="tablink glyphicon glyphicon-tasks" id="filterIcon"></span>
 
 <div class="container" id="galleryContainer">
     <div class="row" id="grid">
-        <div class="col-lg-3 col-md-3 col-xs-4 thumb eventGrid" ng-repeat="evento in dati.events">
-            <a class="thumbnail tall" href="#">
-                <img class="img-responsive" ng-src="{{evento.img}}">
+        <div class="col-lg-3 col-md-3 col-xs-4 thumb tall eventGrid" ng-repeat="evento in dati.events">
+            <a class="thumbnail tall result" href="#">
+                <p class="nomeRicerca">{{evento.nome}}</p>
+                <img class="img-responsive thumb" ng-src="{{evento.img}}">
             </a>
-            <p class="nomeRicerca">  </p>
         </div>
-        <div class="col-lg-3 col-md-3 col-xs-4 thumb userGrid" ng-repeat="user in dati.users">
-            <a class="thumbnail tall" href="#">
-                <img class="img-responsive" ng-src="{{user.img_url}}">
+        <div class="col-lg-3 col-md-3 col-xs-4 thumb tall userGrid" ng-repeat="user in dati.users">
+            <a class="thumbnail tall result" href="#">
+                <p class="nomeRicerca">{{user.nickname}}</p>
+                <img class="img-responsive thumb" ng-src="{{user.img_url}}">
             </a>
-            <p class="nomeRicerca"> hguyf  </p>
         </div>
     </div>
 </div>

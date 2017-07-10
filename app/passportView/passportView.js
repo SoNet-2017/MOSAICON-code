@@ -25,10 +25,8 @@ angular.module('myApp.passportView', ['ngRoute'])
     $rootScope.dati.currentView = "passport";
     $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
 
-
     // function called when the "logout" button will be pressed
     $scope.logout = function () {
-
         //save the new status in the database (we do it before the actual logout because we can write in the database only if the user is logged in)
         Users.registerLogout(currentAuth.uid);
         //sign out
@@ -40,7 +38,5 @@ angular.module('myApp.passportView', ['ngRoute'])
                 $location.path("/loginView");
             }
         });
-
-
     };
 }]);

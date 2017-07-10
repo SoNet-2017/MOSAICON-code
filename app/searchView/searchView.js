@@ -73,6 +73,30 @@ function showClubbers() {
     }
 }
 
+function showAll() {
+    var eventGrid = document.getElementsByClassName("eventGrid");
+    var clubbersGrid = document.getElementsByClassName("userGrid");
+    //var DJsGrid = document.getElementById("superuserGrid");
+    for (var i=0; i<eventGrid.length; i++) {
+        eventGrid[i].style.display = "block";
+    }
+    for (var j=0; j<clubbersGrid.length; j++) {
+        clubbersGrid[j].style.display = "block";
+    }
+}
+
+function showDJs() {
+    var eventGrid = document.getElementsByClassName("eventGrid");
+    var clubbersGrid = document.getElementsByClassName("userGrid");
+    //var DJsGrid = document.getElementById("superuserGrid");
+    for (var i=0; i<eventGrid.length; i++) {
+        eventGrid[i].style.display = "none";
+    }
+    for (var j=0; j<clubbersGrid.length; j++) {
+        clubbersGrid[j].style.display = "none";
+    }
+}
+
 function openCity(evt, cityName) {
     // Declare all variables
     var i, tabcontent, tablinks;
