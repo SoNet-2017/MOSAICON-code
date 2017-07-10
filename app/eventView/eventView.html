@@ -84,7 +84,7 @@
         </div>
         <div ng-repeat="content in dati.event.content" class="modal-content" id="modalMedia">
             <img ng-src="{{content.url}}" style="width:100%; max-height:400px; border:solid 1px firebrick">
-            <a href="#!/extPassportView/{{content.user_id}}" style="padding-left: 10px;">{{content.nickname}}</a>
+            <a id="nicknm" href="#!/extPassportView/{{content.user_id}}" style="padding-left: 10px;">{{content.nickname}}</a>
             <p id="storie" style="max-height: 100px; padding-left: 10px;">{{content.comment}}</p>
         </div>
         <div id="spazioBottom" style="height: 103px"></div>

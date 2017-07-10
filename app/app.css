@@ -366,6 +366,7 @@ img.hover-shadow {
     position: relative;
     left: 16%;
     top: 12px;
+    font-size: 16px;
 }
 
 /* Genau */
@@ -579,6 +580,11 @@ img.hover-shadow {
 
   margin-top: -14%;
   text-align: center;
+}
+
+#nicknm {
+
+    font-size: 14px;
 }
 
 /* Passport
