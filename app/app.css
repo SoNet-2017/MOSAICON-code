@@ -1,7 +1,8 @@
 body {
 
 
-    font-family: "Futura";
+    font-family: monospace;
+    font-size: 12px;
     color: snow;
     background-color: #080808;
 }
@@ -16,9 +17,13 @@ body {
 }
 
 #blocco {
-    /*position: fixed;*/
+   position: fixed;
     padding: 0;
 
+}
+
+a {
+    color: firebrick;
 }
 
 /* Navigation */
@@ -216,7 +221,6 @@ span {
     display: none;
     position: fixed;
     z-index: 3;
-    padding-top: 50px;
     padding-bottom: 100px;
     left: 0;
     top: 0;
@@ -245,8 +249,16 @@ video::-webkit-media-controls {
     color: white;
     position: relative;
     left: 325px;
+    top: 48px;
     font-size: 40px;
     font-weight: bold;
+    z-index: 1;
+}
+
+#menu {
+    position: relative;
+    left: 25px;
+    top: 2px;
 }
 
 .close:hover,
@@ -259,6 +271,7 @@ video::-webkit-media-controls {
 .mySlides {
     display: none;
     max-height: 400px;
+    margin-top: 130px;
 }
 
 /* Next & previous buttons */
@@ -268,7 +281,9 @@ video::-webkit-media-controls {
     position: relative;
     width: auto;
     top: 15px;
-    left: 130px;
+    left: 55px;
+    padding-left: 50px;
+    padding-right: 50px;
     color: white;
     font-weight: bold;
     font-size: 20px;
@@ -347,6 +362,13 @@ img.hover-shadow {
     font-size: 14px;
 }
 
+#usercomment {
+    position: relative;
+    left: 16%;
+    top: 12px;
+    font-size: 16px;
+}
+
 /* Genau */
 #genau {
     position: relative;
@@ -365,6 +387,10 @@ img.hover-shadow {
 #cardHeader {
     background-color: firebrick;
     font-size: 14px;
+}
+
+#cardTitle {
+    margin: 0;
 }
 
 #cardText {
@@ -389,14 +415,15 @@ img.hover-shadow {
     float: left;
     padding: 0px;
     margin: 2px;
-    height: 121px;
+    height: 120px;
     width: 121px;
+    border: 1px solid firebrick;
 }
 
 .thumb {
     padding: 0px;
-    height: 125px;
-    width: 125px;
+    height: 120px;
+    width: 121px;
 }
 
 #grid {
@@ -412,9 +439,114 @@ img.hover-shadow {
     margin-bottom: 15%;
 }
 
-#plusMedia {
-    height: 125px;
-    width: 125px;
+.plusMedia {
+    height: 118px;
+    width: 119px;
+    padding: 0;
+    background-color: #080808;
+    color: snow;
+    border: 1px solid #080808;
+    border-radius: 3px;
+}
+
+#commento {
+    height: 100px;
+    width: 89%;
+    background-color: #080808;
+    color: snow;
+    border-color: firebrick;
+    padding-top: 6px;
+    padding-left: 18px;
+    margin-left: 20px;
+}
+
+#storie {
+    margin-bottom: 0;
+}
+
+#modalMedia {
+    height: auto;
+    max-height: inherit;
+    top: 103px;
+    bottom: 103px;
+}
+
+#addMedia {
+    background-color: #080808;
+    color: snow;
+    font-size: 20px;
+    margin-right: 50px;
+    margin-bottom: -30px;
+    /*float: left;
+    width: 75%;
+    height: 48px;
+    padding: 5%; */
+}
+
+#modalHeader {
+    padding: 0;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 53px;
+    z-index: 5;
+    background-color: #080808;
+    border: 1px solid firebrick;
+}
+
+#X {
+    position: fixed;
+}
+
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: firebrick;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 41px;
+    right: 19px;
+    font-size: 45px;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay {overflow-y: auto;}
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
 }
 
 .scrollbox {
@@ -450,6 +582,16 @@ img.hover-shadow {
   text-align: center;
 }
 
+.nicknm {
+
+    font-size: 14px;
+}
+
+#upImg {
+
+    background-color: firebrick;
+    border-color: firebrick;
+}
 /* Passport
 #passport {
 

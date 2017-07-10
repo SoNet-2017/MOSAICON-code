@@ -1,6 +1,6 @@
-
+<div id="blocco">
     <!-- Videogular -->
-    <div ng-app="myApp.eventView">
+    <div ng-app="myApp.eventView" ng-controller="eventViewCtrl">
         <div ng-controller="videoCtrl as controller" class="videogular-container">
             <videogular vg-player-ready="controller.onPlayerReady($API)" vg-update-state="controller.onUpdateState($state)" vg-theme="controller.config.theme">
                 <vg-media vg-src="controller.config.sources"></vg-media>
@@ -14,7 +14,7 @@
     </div>
 
     <!-- Lightbox -->
-    <div class="container" id="lightbox">
+    <div class="container" id="lightbox" ng-controller="eventViewCtrl">
         <div class="row">
             <div class="column">
                 <img src="../images/BerlinFreiheit20.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="image_tn">
@@ -28,18 +28,18 @@
         </div>
     </div>
 
-    <div id="myModal" class="modal">
+    <div id="myModal" class="modal" ng-controller="eventViewCtrl">
         <!-- Panel -->
-        <div class="container" id="infoMedia">
+        <!--<div class="container" id="infoMedia">
             <div class="card">
                 <div class="card-header danger-color-dark white-text" id="mediaHeader">
-                    <strong>NotteTechno III</strong> MMM
+                    <strong>NotteTechno III</strong>
                 </div>
                 <div class="card-block">
                     <p class="card-text" id="info"><strong>@mlnmtt</strong> Che festone!!!</p>
                 </div>
             </div>
-        </div>
+        </div> -->
         <span class="close-cursor" onclick="closeModal()">&times;</span>
         <div class="modal-content">
 
@@ -55,57 +55,72 @@
                 <video src="../images/MMMteaser.mp4" class="clip" style="width:100%;max-height: 400px" controls="false" muted />
             </div>
 
-            <div class="mySlides">
-                <img src="../images/BerlinFreiheit19.jpg" style="width:100%; max-height:400px; border:solid 1px firebrick">
-            </div>
-
-            <div class="mySlides">
-                <img src="../images/BerlinFreiheit20.jpg" style="width:100%; max-height:400px; border:solid 1px firebrick">
-            </div>
-
-            <div class="mySlides">
-                <img src="../images/BerlinFreiheit21.jpg" style="width:100%; max-height:400px; border:solid 1px firebrick">
-            </div>
-
-            <div class="mySlides">
-                <img src="../images/BerlinFreiheit22.jpg" style="width:100%; max-height:400px;  border:solid 1px firebrick">
-            </div>
-
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <button id="genau">
-                <span class="glyphicon glyphicon-thumbs-up"></span>
-                <span>GENAU</span>
-            </button>
+            <a href="#!extPassportView/2CqRUcoNd0OPTwjv4cauOfZRCC82" id="usercomment">@met</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
         </div>
     </div>
 
+    <div id="mySingleModal" class="modal" ng-controller="eventViewCtrl as $ctrl">
+        <div class="container" id="modalHeader">
+
+            <span id="menu" style="font-size:30px;cursor:pointer" onclick="openNav()">+</span>
+            <span class="close-cursor" id="X" onclick="closeSingleModal()">&times;</span>
+
+        </div>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <form role="form" ng-submit="addImage()">
+                <file-upload on-change="$ctrl.onChange">
+                    <!-- <span id="addMedia" class="glyphicon glyphicon-upload"></span> -->
+                </file-upload>
+
+                <div class="form-group">
+                    <textarea maxlength="150" type="text" class="form-control" id="commento" placeholder="Tell your Experience" ng-model="dati.content"></textarea>
+                </div>
+
+                    <button type="submit" class="btn btn-success center-block" id="upImg" onclick="closeNav()">Upload</button>
+                </form>
+            </div>
+        </div>
+        <div ng-repeat="content in dati.event.content" class="modal-content" id="modalMedia">
+            <img ng-src="{{content.url}}" style="width:100%; max-height:400px; border:solid 1px firebrick">
+            <a class="nicknm" href="#!/passportView" style="padding-left: 10px;" ng-if="content.user_id === dati.id">{{content.nickname}}</a>
+            <a class="nicknm" href="#!/extPassportView/{{content.user_id}}" style="padding-left: 10px;" ng-if="content.user_id !== dati.id">{{content.nickname}}</a>
+            <p id="storie" style="max-height: 100px; padding-left: 10px;">{{content.comment}}</p>
+        </div>
+        <div id="spazioBottom" style="height: 103px"></div>
+    </div>
+
     <!--<script src="myModal.js"></script>
 
     <!-- Panel -->
-    <div class="container" id="card">
+    <div class="container" id="card" ng-controller="eventViewCtrl">
         <div class="card">
             <div class="card-header danger-color-dark white-text" id="cardHeader">
-                <strong>NotteTechno III</strong> - Cavallerizza Irreale PRESENTS 03/06
+                <p id="cardTitle"><strong>{{dati.event.nome}}</strong></p>
             </div>
             <div class="card-block">
-                <p class="card-text" id="cardText"><strong>Mad Monkeys Mood</strong></br>@Cavallerizza Reale, Torino w/</br>Seven Sins, Red Access & NoizyKnobs</p>
-                <img src="../images/adesivo.png" class="circular">
+                <p class="card-text" id="cardText"><strong>{{dati.event.org}}</strong></br> @{{dati.event.luogo}}</br>{{dati.event.lineup}}</p>
+                <img ng-src="{{dati.event.img}}" class="circular">
             </div>
         </div>
     </div>
 
     <!-- Gallery -->
-    <div class="container" id="galleryContainer">
+    <div class="container" id="galleryContainer" ng-controller="eventViewCtrl">
         <div id="scroll">
             <div class="scrollbox">
-                <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(4)">
-                <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(5)">
+
+                <img class="thumbnail" ng-repeat="content in dati.event.content" ng-src="{{content.url}}"  onclick="openSingleModal()">
+                <!-- <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(5)">
                 <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(6)">
-                <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(7)">
-                <a class="thumbnail" href="#">
-                    <button id="plusMedia">
+                <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(7)"> -->
+
+                <a class="thumbnail" onclick="openSingleModal(), openNav()">
+                    <button class="plusMedia">
                         <span class="glyphicon glyphicon-plus"></span>
                     </button>
                 </a>
@@ -114,7 +129,7 @@
     </div>
 
     <!-- Audiogular -->
-    <div ng-app="myApp.eventView">
+    <div ng-app="myApp.eventView" ng-controller="eventViewCtrl">
         <div ng-controller="audioCtrl as controller" class="videogular-container">
             <videogular vg-player-ready="controller.onPlayerReady($API)" vg-update-state="controller.onUpdateState($state)" vg-update-time="controller.onUpdateTime($currentTime, $duration)" vg-theme="controller.config.theme.url" class="videogular-container audio">
                 <vg-media vg-src="controller.config.sources" vg-type="audio" id="audioTrack"></vg-media>
@@ -128,7 +143,7 @@
             </videogular>
         </div>
     </div>
-
+</div>
    <!-- <script src="eventView/eventView.js"></script> -->
 
 <!-- chiudi blocco -->

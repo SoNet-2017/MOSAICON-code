@@ -29,7 +29,8 @@ angular.module('myApp', [
     'myApp.homeView',
     'myApp.searchView',
     'myApp.editPassportView',
-    'myApp.eventView'
+    'myApp.eventView',
+    'myApp.extPassportView'
 
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

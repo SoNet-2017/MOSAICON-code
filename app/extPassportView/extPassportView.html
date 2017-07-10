@@ -1,0 +1,22 @@
+<div class="container-fluid views">
+    <div id="passport">
+        <h1 class="avatar_cont"><img src={{dati.user.img_url}} class="avatar"></h1>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-header">
+                    <h2 class="name">{{dati.user.name}} {{dati.user.surname}}</h2>
+                </div>
+                <div class="container-fluid">
+                    <h3>@{{dati.user.nickname}}</h3>
+                    <h4>Actually located in {{dati.user.citta}}</h4>
+                    <h5>Age: {{dati.user.age}}</h5>
+                    <h6>About me: <p>{{dati.user.infos}}</p></h6>
+                    <p>
+                        <span class="glyphicon glyphicon-envelope"></span> {{dati.user.email}}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
