@@ -38,13 +38,14 @@ angular.module('myApp.mapView', ['ngRoute', 'myApp.events'])
 
 
                 var i = 0;
+                var tempEvent = [];
 
                 do {
 
-                    $scope.dati.event = oneEvent.getOneEvent(i);
-                    $scope.dati.event.$loaded().then(function() {
+                    tempEvent[i] = oneEvent.getOneEvent(i);
+                    tempEvent[i].$loaded().then(function(variable) {
 
-                        var indirizzo = $scope.dati.event.indirizzo;
+                        var indirizzo = variable.indirizzo;
                         $scope.dati.vm.positions.push({indirizzo: indirizzo});
                         console.log(indirizzo);
                     });
