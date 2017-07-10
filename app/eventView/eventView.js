@@ -11,7 +11,8 @@ angular.module('myApp.eventView',
         "com.2fdevs.videogular.plugins.controls",
         "com.2fdevs.videogular.plugins.overlayplay",
         "com.2fdevs.videogular.plugins.poster",
-        'myApp.events'
+        'myApp.events',
+        'myApp.users'
     ]
 )
 
@@ -31,19 +32,64 @@ angular.module('myApp.eventView',
         })
     }])
 
-    .controller('eventViewCtrl', ['$scope', '$rootScope', '$routeParams', 'oneEvent',
-        function ($scope, $rootScope, $routeParams, oneEvent) {
+    .controller('eventViewCtrl', ['$scope', '$rootScope', '$routeParams', 'oneEvent', '$firebaseAuth', '$firebaseStorage', 'UsersChatService', '$location',
+        function ($scope, $rootScope, $routeParams, oneEvent, $firebaseAuth, $firebaseStorage, UsersChatService, $location) {
 
             $scope.dati = {};
-            $scope.dati.currentView = "calendar";
+            //$scope.dati.currentView = "calendar";
+
+            var user_id = firebase.auth().currentUser.uid;
+            $scope.dati.id = user_id;
+            var event_id = $routeParams.eventId;
 
             $scope.dati.event = oneEvent.getOneEvent($routeParams.eventId);
+
             $scope.dati.event.$loaded().then(function() {
-                $scope.dati.event.content = oneEvent.getContent($routeParams.eventId);
+                $scope.dati.event.content = oneEvent.getContent(event_id);
                 $scope.dati.event.content.$loaded().then(function() {
                     console.log($scope.dati.event.content.length);
                 });
             });
+
+            $scope.addImage = function() {
+
+                if ($scope.fileToUpload != null) {
+
+                    $scope.dati.user = UsersChatService.getUserInfo(user_id);
+
+                    $scope.dati.user.$loaded().then(function () {
+
+                        //get the name of the file
+                        var fileName = $scope.fileToUpload.name;
+                        //specify the path in which the file should be saved on firebase
+                        var storageRef = firebase.storage().ref("eventsImg/" + fileName);
+                        $scope.storage = $firebaseStorage(storageRef);
+                        var uploadTask = $scope.storage.$put($scope.fileToUpload);
+                        uploadTask.$complete(function (snapshot) {
+                            $scope.dati.img_url = snapshot.downloadURL;
+
+                            oneEvent.uploadContent($scope.dati.content, event_id, $scope.dati.user.nickname, $scope.dati.img_url, user_id);
+
+                        });
+
+                    });
+                }
+
+                else {
+
+                    //oneEvent.updateUserInfo(userId, $scope.dati.user.name, $scope.dati.user.surname, $scope.dati.user.nickname, $scope.dati.user.nascita, $scope.dati.user.citta, $scope.dati.user.infos, path);
+
+                }
+
+
+                $location.path("/eventView/" + event_id);
+
+            };
+
+            var ctrl = this;
+            ctrl.onChange = function onChange(fileList) {
+                $scope.fileToUpload = fileList[0];
+            };
         }])
 
     /* Audiogular */

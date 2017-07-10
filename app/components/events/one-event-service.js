@@ -18,7 +18,29 @@ angular.module('myApp.events.oneEventService', [])
 
                 var ref = firebase.database().ref().child("events").child(eventId).child("content");
                 return $firebaseArray(ref);
+            },
+
+            uploadContent: function(comment, event_id, nickname, url, user_id) {
+
+                var ref = firebase.database().ref().child("events").child(event_id).child("content");
+                return $firebaseArray(ref).$add({
+                    comment: comment,
+                    event_id: event_id,
+                    nickname: nickname,
+                    url: url,
+                    user_id: user_id
+                });
+
             }
+
+           /* updateContent: function (event_id, contentId) {
+                //add the user to list of users and set the logged value to true
+                var ref = firebase.database().ref().child("events").child(event_id).child("content").child(contentId);
+                // create a synchronized array
+                ref.update({
+                    id: contentId
+                });
+            } */
         };
         return oneEventService;
     });

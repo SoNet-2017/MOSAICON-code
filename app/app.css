@@ -582,11 +582,16 @@ img.hover-shadow {
   text-align: center;
 }
 
-#nicknm {
+.nicknm {
 
     font-size: 14px;
 }
 
+#upImg {
+
+    background-color: firebrick;
+    border-color: firebrick;
+}
 /* Passport
 #passport {
 

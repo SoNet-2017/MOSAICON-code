@@ -62,7 +62,7 @@
         </div>
     </div>
 
-    <div id="mySingleModal" class="modal" ng-controller="eventViewCtrl">
+    <div id="mySingleModal" class="modal" ng-controller="eventViewCtrl as $ctrl">
         <div class="container" id="modalHeader">
 
             <span id="menu" style="font-size:30px;cursor:pointer" onclick="openNav()">+</span>
@@ -72,19 +72,23 @@
         <div id="myNav" class="overlay">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <div class="overlay-content">
+                <form role="form" ng-submit="addImage()">
                 <file-upload on-change="$ctrl.onChange">
                     <!-- <span id="addMedia" class="glyphicon glyphicon-upload"></span> -->
                 </file-upload>
 
                 <div class="form-group">
-                    <textarea maxlength="150" type="text" class="form-control" id="commento" placeholder="Tell your Experience"></textarea>
+                    <textarea maxlength="150" type="text" class="form-control" id="commento" placeholder="Tell your Experience" ng-model="dati.content"></textarea>
                 </div>
 
+                    <button type="submit" class="btn btn-success center-block" id="upImg" onclick="closeNav()">Upload</button>
+                </form>
             </div>
         </div>
         <div ng-repeat="content in dati.event.content" class="modal-content" id="modalMedia">
             <img ng-src="{{content.url}}" style="width:100%; max-height:400px; border:solid 1px firebrick">
-            <a id="nicknm" href="#!/extPassportView/{{content.user_id}}" style="padding-left: 10px;">{{content.nickname}}</a>
+            <a class="nicknm" href="#!/passportView" style="padding-left: 10px;" ng-if="content.user_id === dati.id">{{content.nickname}}</a>
+            <a class="nicknm" href="#!/extPassportView/{{content.user_id}}" style="padding-left: 10px;" ng-if="content.user_id !== dati.id">{{content.nickname}}</a>
             <p id="storie" style="max-height: 100px; padding-left: 10px;">{{content.comment}}</p>
         </div>
         <div id="spazioBottom" style="height: 103px"></div>
