@@ -5,11 +5,10 @@
       </span>
 </div>
 
-<button class="tablink" onclick="openCity('All', this, 'red')" id="defaultOpen">all</button>
-<button class="tablink" onclick="openCity('Clubs', this, 'green')">clubs</button>
-<button class="tablink" onclick="openCity('Clubbers', this, 'blue')">clubbers</button>
-<button class="tablink" onclick="openCity('DJs', this, 'orange')">DJs</button>
-<button class="tablink glyphicon glyphicon-tasks"></button>
+<button class="tablink" ng-click="filterClub()" id="defaultOpen">clubs</button>
+<button class="tablink" ng-click="filterClubber()">clubbers</button>
+<button class="tablink" ng-click="filterDJ()">DJs</button>
+<span class="tablink glyphicon glyphicon-tasks" id="filterIcon"></span>
 
 <div class="container" id="galleryContainer">
     <div class="row" id="grid">

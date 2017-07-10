@@ -22,16 +22,28 @@ angular.module('myApp.searchView', ['ngRoute'])
         })
     }])
 
-    .controller('searchCtrl', ['$scope', '$rootScope', 'currentAuth', '$firebaseAuth', '$location', function($scope, $rootScope, currentAuth, $firebaseAuth, $location) {
+    .controller('searchCtrl', ['$scope', '$rootScope', 'currentAuth', '$firebaseAuth', '$location', 'eventsService', 'userChatService',
+        function($scope, $rootScope, currentAuth, $firebaseAuth, $location, eventService, userChatService) {
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
         $rootScope.dati.currentView = "search";
+        $scope.dati.events = eventService.getAllEvents();
 
-            $firebaseAuth().$onAuthStateChanged(function(firebaseUser) {
-                if (firebaseUser) {
-                    console.log("User is yet signed in as:", firebaseUser.uid);
-                } else {
-                    $location.path("/loginView");
-                }
-            });
+        $scope.filterClub = function () {
+            events.style.display = block;
+        };
+        $scope.filterClubber = function () {
+
+        };
+        $scope.filterDJ = function () {
+
+        };
+
+        $firebaseAuth().$onAuthStateChanged(function(firebaseUser) {
+            if (firebaseUser) {
+                console.log("User is yet signed in as:", firebaseUser.uid);
+            } else {
+                $location.path("/loginView");
+            }
+        });
     }]);
