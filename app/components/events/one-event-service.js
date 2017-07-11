@@ -28,19 +28,26 @@ angular.module('myApp.events.oneEventService', [])
                     event_id: event_id,
                     nickname: nickname,
                     url: url,
-                    user_id: user_id
+                    user_id: user_id,
+                    like_count : 0
                 });
 
-            }
+            },
 
-           /* updateContent: function (event_id, contentId) {
+            getContentInfo: function(eventId, contentId) {
+                var ref = firebase.database().ref().child("events").child(eventId).child("content").child(contentId);
+                return $firebaseObject(ref);
+            },
+
+           updateContent: function (event_id, contentId, recordId) {
                 //add the user to list of users and set the logged value to true
                 var ref = firebase.database().ref().child("events").child(event_id).child("content").child(contentId);
                 // create a synchronized array
                 ref.update({
-                    id: contentId
+                    id: contentId,
+                    record_id: recordId
                 });
-            } */
+            }
         };
         return oneEventService;
     });

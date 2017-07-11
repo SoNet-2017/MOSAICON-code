@@ -12,7 +12,8 @@ angular.module('myApp.eventView',
         "com.2fdevs.videogular.plugins.overlayplay",
         "com.2fdevs.videogular.plugins.poster",
         'myApp.events',
-        'myApp.users'
+        'myApp.users',
+        'myApp.likes'
     ]
 )
 
@@ -32,8 +33,8 @@ angular.module('myApp.eventView',
         })
     }])
 
-    .controller('eventViewCtrl', ['$scope', '$rootScope', '$routeParams', 'oneEvent', '$firebaseAuth', '$firebaseStorage', 'UsersChatService', '$location',
-        function ($scope, $rootScope, $routeParams, oneEvent, $firebaseAuth, $firebaseStorage, UsersChatService, $location) {
+    .controller('eventViewCtrl', ['$scope', '$rootScope', '$routeParams', 'oneEvent', '$firebaseAuth', '$firebaseStorage', 'UsersChatService', '$location', 'Likes',
+        function ($scope, $rootScope, $routeParams, oneEvent, $firebaseAuth, $firebaseStorage, UsersChatService, $location, Likes) {
 
             $scope.dati = {};
             //$scope.dati.currentView = "calendar";
@@ -68,7 +69,19 @@ angular.module('myApp.eventView',
                         uploadTask.$complete(function (snapshot) {
                             $scope.dati.img_url = snapshot.downloadURL;
 
-                            oneEvent.uploadContent($scope.dati.content, event_id, $scope.dati.user.nickname, $scope.dati.img_url, user_id);
+                            oneEvent.uploadContent($scope.dati.content, event_id, $scope.dati.user.nickname, $scope.dati.img_url, user_id).then(function (ref) {
+                                var contentId = ref.key;
+
+                                Likes.createRecord(event_id, contentId, user_id).then(function(ref) {
+
+                                    var recordId = ref.key;
+                                    Likes.updateRecordId(event_id, contentId, recordId);
+                                    oneEvent.updateContent(event_id, contentId, recordId);
+                                    $scope.dati.feedback = "upload done";
+
+                                })
+
+                            });
 
                         });
 
@@ -86,10 +99,42 @@ angular.module('myApp.eventView',
 
             };
 
+            $scope.likePic = function(event_id, contentId) {
+
+                var content = oneEvent.getContentInfo(event_id, contentId);
+
+                content.$loaded().then(function () {
+                    var likes = content.like_count +1;
+                    Likes.updateCount(event_id, contentId, likes);
+
+                    var user_id = firebase.auth().currentUser.uid;
+                    var recordId = content.record_id;
+                    Likes.like(event_id, contentId, recordId, user_id);
+
+                })
+
+            };
+
+            $scope.dislikePic = function(event_id, contentId) {
+
+                var content = oneEvent.getContentInfo(event_id, contentId);
+
+                content.$loaded().then(function () {
+                    var likes = content.like_count -1;
+                    Likes.updateCount(event_id, contentId, likes);
+
+                    var user_id = firebase.auth().currentUser.uid;
+                    var recordId = content.record_id;
+                    Likes.disLike(event_id, contentId, recordId, user_id);
+
+                })
+            };
+
             var ctrl = this;
             ctrl.onChange = function onChange(fileList) {
                 $scope.fileToUpload = fileList[0];
             };
+
         }])
 
     /* Audiogular */
