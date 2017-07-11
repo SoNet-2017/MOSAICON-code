@@ -431,7 +431,8 @@ img.hover-shadow {
 }
 
 .tall {
-    height: 180px;
+    color: snow;
+    height: 200px;
     background-color: #080808;
     margin-right: 3px;
     margin-bottom: 3px;
@@ -444,7 +445,7 @@ img.hover-shadow {
 }
 
 .thumbnail > img, .thumbnail a > img {
-    height: 128px;
+    height: 148px;
 }
 #grid {
     padding: 0px;
