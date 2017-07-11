@@ -75,7 +75,7 @@ angular.module('myApp.eventView',
                                 Likes.createRecord(event_id, contentId, user_id).then(function(ref) {
 
                                     var recordId = ref.key;
-                                    Likes.updateRecordId(recordId);
+                                    Likes.updateRecordId(event_id, contentId, recordId);
                                     oneEvent.updateContent(event_id, contentId, recordId);
                                     $scope.dati.feedback = "upload done";
 
@@ -101,13 +101,31 @@ angular.module('myApp.eventView',
 
             $scope.likePic = function(event_id, contentId) {
 
-
                 var content = oneEvent.getContentInfo(event_id, contentId);
+
                 content.$loaded().then(function () {
                     var likes = content.like_count +1;
-
                     Likes.updateCount(event_id, contentId, likes);
 
+                    var user_id = firebase.auth().currentUser.uid;
+                    var recordId = content.record_id;
+                    Likes.like(event_id, contentId, recordId, user_id);
+
+                })
+
+            };
+
+            $scope.dislikePic = function(event_id, contentId) {
+
+                var content = oneEvent.getContentInfo(event_id, contentId);
+
+                content.$loaded().then(function () {
+                    var likes = content.like_count -1;
+                    Likes.updateCount(event_id, contentId, likes);
+
+                    var user_id = firebase.auth().currentUser.uid;
+                    var recordId = content.record_id;
+                    Likes.disLike(event_id, contentId, recordId, user_id);
 
                 })
 

@@ -17,51 +17,42 @@ angular.module('myApp.likes.likesService', [])
             },
 
             createRecord: function (eventId, contentId, userId) {
-                var ref = firebase.database().ref().child("records");
+                var ref = firebase.database().ref().child("events").child(eventId).child("content").child(contentId).child("record");
                 return $firebaseArray(ref).$add({
 
-                    event_id: eventId,
-                    content_id: contentId,
                     [userId]: false
 
                 });
             },
 
-            updateRecordId: function (recordId) {
-                var ref = firebase.database().ref().child("records").child(recordId);
+            updateRecordId: function (eventId, contentId, recordId) {
+                var ref = firebase.database().ref().child("events").child(eventId).child("content").child(contentId).child("record").child(recordId);
 
                 ref.update({
                     id: recordId
                 });
             },
 
-            like: function (recordId, userId) {
-                var ref = firebase.database().ref().child("records").child(recordId);
+            like: function (eventId, contentId, recordId, userId) {
+                var ref = firebase.database().ref().child("events").child(eventId).child("content").child(contentId).child("record").child(recordId);
 
                 ref.update({
                     [userId]: true
                 });
             },
 
-            unLike: function (recordId, userId) {
-                var ref = firebase.database().ref().child("records").child(recordId);
+            disLike: function (eventId, contentId, recordId, userId) {
+                var ref = firebase.database().ref().child("events").child(eventId).child("content").child(contentId).child("record").child(recordId);
 
                 ref.update({
                     [userId]: false
                 });
             },
 
-            getSingleRecord: function(recordId) {
+            getSingleRecord: function(eventId, contentId, recordId) {
 
-                var ref = firebase.database().ref().child("records").child(recordId);
+                var ref = firebase.database().ref().child("events").child(eventId).child("content").child(contentId).child("record").child(recordId);
                 return(ref);
-
-            },
-
-            getRecords: function(recordId) {
-
-                var ref = firebase.database().ref().child("records").child(recordId);
-                return $firebaseArray(ref);
 
             }
 
