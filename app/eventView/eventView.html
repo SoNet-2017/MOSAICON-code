@@ -98,15 +98,16 @@
 
         <div ng-repeat="content in dati.event.content" class="modal-content" id="modalMedia">
             <img ng-src="{{content.url}}" style="width:100%; max-height:400px; border:solid 1px firebrick">
-            <a class="nicknm" href="#!/passportView" style="padding-left: 10px;" ng-if="content.user_id === dati.id">{{content.nickname}}</a>
+            <a class="nicknm" href="#!/passportView" style="padding-left: 10px;" ng-if="content.user_id === dati.id">@{{content.nickname}}</a>
             <a class="nicknm" href="#!/extPassportView/{{content.user_id}}" style="padding-left: 10px;" ng-if="content.user_id !== dati.id">{{content.nickname}}</a>
             <p id="storie" style="max-height: 100px; padding-left: 10px;">{{content.comment}}</p>
-            <button ng-click="likePic(content.event_id, content.id)" ng-if="content['record'][content.record_id][dati.id] === false || !content['record'][content.record_id][dati.id]">
-                <span class="glyphicon glyphicon-heart"></span> {{content.like_count}}
-            </button>
-            <button ng-click="dislikePic(content.event_id, content.id)" ng-if="content['record'][content.record_id][dati.id] === true">
-                <span class="glyphicon glyphicon-heart" style="color: firebrick;"></span> {{content.like_count}}
-            </button>
+            <div>
+                <div class="like_line">
+            <button class="glyphicon glyphicon-heart like_btn" ng-click="likePic(content.event_id, content.id)" ng-if="content['record'][content.record_id][dati.id] === false || !content['record'][content.record_id][dati.id]"></button>
+            <button class="glyphicon glyphicon-heart like_btn" style="color: firebrick;" ng-click="dislikePic(content.event_id, content.id)" ng-if="content['record'][content.record_id][dati.id] === true"></button>
+                    <p id="like_count">{{content.like_count}}</p>
+                </div>
+            </div>
         </div>
         <div id="spazioBottom" style="height: 103px"></div>
     </div>

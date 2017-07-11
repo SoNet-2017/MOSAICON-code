@@ -500,6 +500,7 @@ img.hover-shadow {
 
 #storie {
     margin-bottom: 0;
+    font-size: 14px;
 }
 
 #modalMedia {
@@ -628,13 +629,35 @@ img.hover-shadow {
 
 .nicknm {
 
-    font-size: 14px;
+    font-size: 16px;
 }
 
 #upImg {
 
     background-color: firebrick;
     border-color: firebrick;
+}
+
+.like_line {
+
+    padding-left: 10px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.like_btn {
+
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+#like_count {
+
+    display: inline-block;
+    font-size: 18px;
+
 }
 /* Passport
 #passport {
