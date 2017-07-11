@@ -5,7 +5,7 @@
       </span>
 </div>
 
-<button class="tablink active" onclick="showAll()" id="defaultOpen">all</button>
+<button class="tablink selected" onclick="showAll()">all</button>
 <button class="tablink" onclick="showEvent()">events</button>
 <button class="tablink" onclick="showClubbers()">clubbers</button>
 <button class="tablink" onclick="showDJs()">DJs</button>
@@ -17,12 +17,14 @@
             <a class="thumbnail tall result" href="#">
                 <p class="nomeRicerca">{{evento.nome}}</p>
                 <img class="img-responsive thumb" ng-src="{{evento.img}}">
+                <p class="descrRicerca">{{evento.luogo}}</p>
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-4 thumb tall userGrid" ng-repeat="user in dati.users">
             <a class="thumbnail tall result" href="#">
                 <p class="nomeRicerca">{{user.nickname}}</p>
                 <img class="img-responsive thumb" ng-src="{{user.img_url}}">
+                <p class="descrRicerca">{{user.citta}}</p>
             </a>
         </div>
     </div>

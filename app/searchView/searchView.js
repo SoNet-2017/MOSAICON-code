@@ -30,6 +30,11 @@ angular.module('myApp.searchView', ['ngRoute'])
         $scope.dati.events = Events.getData();
         $scope.dati.users = UserList.getListOfUsers();
 
+        $('button.tablink').on('click', function(){
+            $('button.tablink').removeClass('selected');
+            $(this).addClass('selected');
+        });
+
         /*
         $scope.filterClub = function () {
             events.style.display = block;
