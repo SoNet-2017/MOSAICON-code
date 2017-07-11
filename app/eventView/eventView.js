@@ -71,8 +71,15 @@ angular.module('myApp.eventView',
 
                             oneEvent.uploadContent($scope.dati.content, event_id, $scope.dati.user.nickname, $scope.dati.img_url, user_id).then(function (ref) {
                                 var contentId = ref.key;
-                                oneEvent.updateContent(event_id, contentId);
-                                $scope.dati.feedback = "upload done";
+
+                                Likes.createRecord(event_id, contentId, user_id).then(function(ref) {
+
+                                    var recordId = ref.key;
+                                    Likes.updateRecordId(recordId);
+                                    oneEvent.updateContent(event_id, contentId, recordId);
+                                    $scope.dati.feedback = "upload done";
+
+                                })
 
                             });
 
@@ -100,6 +107,7 @@ angular.module('myApp.eventView',
                     var likes = content.like_count +1;
 
                     Likes.updateCount(event_id, contentId, likes);
+
 
                 })
 
