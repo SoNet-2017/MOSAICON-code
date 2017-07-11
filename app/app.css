@@ -13,9 +13,10 @@ body {
 #btnDemo {
     position: fixed;
     top: 150px;
-    left: 128px;
+    left: 125px;
     color: snow;
-    font-family: "Futurist Fixed-width";
+    border: 2px solid firebrick;
+    font-family: "Futurist Fixed-width", "Futura", "Borgen", "Arial";
     font-size: 30px;
 }
 
