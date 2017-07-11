@@ -498,6 +498,11 @@ img.hover-shadow {
     position: fixed;
 }
 
+#alert {
+
+    z-index: 20;
+}
+
 .overlay {
     height: 0%;
     width: 100%;

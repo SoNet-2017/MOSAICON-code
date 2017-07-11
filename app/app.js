@@ -19,6 +19,7 @@ angular.module('myApp', [
     'myApp.authentication',
     'myApp.users',
     'myApp.events',
+    'myApp.likes',
     'myApp.calendar',
     'myApp.calendarView',
     'myApp.mapView',
