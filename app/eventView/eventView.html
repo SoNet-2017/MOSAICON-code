@@ -101,11 +101,11 @@
             <a class="nicknm" href="#!/passportView" style="padding-left: 10px;" ng-if="content.user_id === dati.id">{{content.nickname}}</a>
             <a class="nicknm" href="#!/extPassportView/{{content.user_id}}" style="padding-left: 10px;" ng-if="content.user_id !== dati.id">{{content.nickname}}</a>
             <p id="storie" style="max-height: 100px; padding-left: 10px;">{{content.comment}}</p>
-            <button ng-click="likePic(content.event_id, content.id)">
+            <button ng-click="likePic(content.event_id, content.id)" ng-if="content['record'][content.record_id][dati.id] === false || !content['record'][content.record_id][dati.id]">
                 <span class="glyphicon glyphicon-heart"></span> {{content.like_count}}
             </button>
-            <button ng-click="dislikePic(content.event_id, content.id)">
-                <span class="glyphicon glyphicon-heart" style="color: firebrick;"></span>
+            <button ng-click="dislikePic(content.event_id, content.id)" ng-if="content['record'][content.record_id][dati.id] === true">
+                <span class="glyphicon glyphicon-heart" style="color: firebrick;"></span> {{content.like_count}}
             </button>
         </div>
         <div id="spazioBottom" style="height: 103px"></div>

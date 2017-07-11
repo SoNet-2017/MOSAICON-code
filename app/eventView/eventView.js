@@ -128,7 +128,6 @@ angular.module('myApp.eventView',
                     Likes.disLike(event_id, contentId, recordId, user_id);
 
                 })
-
             };
 
             var ctrl = this;
