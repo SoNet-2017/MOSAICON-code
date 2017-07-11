@@ -16,7 +16,7 @@ body {
 
 }
 
-#blocco {
+.blocco {
    position: fixed;
     padding: 0;
 }
@@ -450,13 +450,19 @@ img.hover-shadow {
 #grid {
     padding: 0px;
     margin-top: 50px;
-    margin-bottom: 15%;
     margin-left: 0px;
     margin-right: 0;
 }
 
 #galleryContainer {
     padding: 0;
+    position: absolute;
+    margin-bottom: 15%;
+}
+
+#resultContainer {
+    padding: 0;
+    padding-top: 103px;
     position: absolute;
     z-index: -1;
     margin-bottom: 15%;
@@ -575,6 +581,7 @@ img.hover-shadow {
 .scrollbox {
     float: left;
     margin-right: -30000px;
+    z-index: 0;
 }
 
 #scroll {

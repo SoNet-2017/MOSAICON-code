@@ -1,3 +1,4 @@
+<div class="blocco">
 <div class="input-group" id="ricerca">
     <input type="text" class="form-control" placeholder="Search">
     <span class="input-group-btn">
@@ -10,18 +11,24 @@
 <button class="tablink" onclick="showClubbers()">clubbers</button>
 <button class="tablink" onclick="showDJs()">DJs</button>
 <span class="tablink glyphicon glyphicon-tasks" id="filterIcon"></span>
+</div>
 
-<div class="container" id="galleryContainer">
+<div class="container" id="resultContainer">
     <div class="row" id="grid">
         <div class="col-lg-3 col-md-3 col-xs-4 thumb tall eventGrid" ng-repeat="evento in dati.events">
-            <a class="thumbnail tall result" href="#">
+            <a class="thumbnail tall result" href="#!/eventView/{{evento.$id}}">
                 <p class="nomeRicerca">{{evento.nome}}</p>
                 <img class="img-responsive thumb" ng-src="{{evento.img}}">
                 <p class="descrRicerca">{{evento.luogo}}</p>
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-4 thumb tall userGrid" ng-repeat="user in dati.users">
-            <a class="thumbnail tall result" href="#">
+            <a class="thumbnail tall result" href="#!/passportView" ng-if="user.$id === dati.id">
+                <p class="nomeRicerca">{{user.nickname}}</p>
+                <img class="img-responsive thumb" ng-src="{{user.img_url}}">
+                <p class="descrRicerca">{{user.citta}}</p>
+            </a>
+            <a class="thumbnail tall result" href="#!/extPassportView/{{user.$id}}" ng-if="user.$id !== dati.id">
                 <p class="nomeRicerca">{{user.nickname}}</p>
                 <img class="img-responsive thumb" ng-src="{{user.img_url}}">
                 <p class="descrRicerca">{{user.citta}}</p>

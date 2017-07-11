@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('myApp.searchView', ['ngRoute'])
+angular.module('myApp.searchView', ['ngRoute', 'myApp.events', 'myApp.users'])
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/searchView', {
@@ -22,13 +22,18 @@ angular.module('myApp.searchView', ['ngRoute'])
         })
     }])
 
-    .controller('searchCtrl', ['$scope', '$rootScope', 'currentAuth', '$firebaseAuth', '$location', 'Events', 'UserList',
-        function($scope, $rootScope, currentAuth, $firebaseAuth, $location, Events, UserList) {
+    .controller('searchCtrl', ['$scope', '$rootScope', 'currentAuth', '$firebaseAuth', '$location', 'Events', 'UserList', '$routeParams',
+        function($scope, $rootScope, currentAuth, $firebaseAuth, $location, Events, UserList, $routeParams) {
+
         $scope.dati={};
-        //set the variable that is used in the main template to show the active button
+
         $rootScope.dati.currentView = "search";
         $scope.dati.events = Events.getData();
         $scope.dati.users = UserList.getListOfUsers();
+
+        var user_id = firebase.auth().currentUser.uid;
+        $scope.dati.id = user_id;
+        var event_id = $routeParams.eventId;
 
         $('button.tablink').on('click', function(){
             $('button.tablink').removeClass('selected');
@@ -100,25 +105,4 @@ function showDJs() {
     for (var j=0; j<clubbersGrid.length; j++) {
         clubbersGrid[j].style.display = "none";
     }
-}
-
-function openCity(evt, cityName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
 }
