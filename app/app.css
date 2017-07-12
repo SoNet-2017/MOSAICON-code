@@ -32,6 +32,22 @@ body {
     padding: 0;
 }
 
+.login {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.loginBtn {
+    background-color: firebrick;
+    border: 1px solid firebrick;
+}
+
+#newPass {
+    padding-left: 22%;
+    color: snow;
+    font-size: 20px;
+}
+
 .glyphicon {
     top: 0;
 }
