@@ -1,5 +1,5 @@
 body {
-    font-family: monospace;
+    font-family: 'Borgen', 'Futura', 'Monospace';
     font-size: 12px;
     color: snow;
     background-color: #080808;
@@ -8,6 +8,7 @@ body {
 #backImg {
     position: fixed;
     z-index: -5;
+    margin-left: 1px;
 }
 
 #btnDemo {
@@ -84,7 +85,7 @@ a {
 }
 
 .navbar-default .navbar-center > li > a:hover {
-    color: #777;
+
 }
 
 .navbar-nav > li > a {
@@ -95,7 +96,6 @@ a {
 
 .navbar-default .navbar-center > li > a:hover {
     color: firebrick;
-    background-color: #3c3c3c;
 }
 
 .navbar-default .navbar-center > li > a {
@@ -268,6 +268,11 @@ video::-webkit-media-controls {
     z-index: 1;
 }
 
+.syncTime {
+    margin-left: 40%;
+    color: snow;
+}
+
 #menu {
     position: relative;
     left: 25px;
@@ -377,7 +382,7 @@ img.hover-shadow {
 
 #usercomment {
     position: relative;
-    left: 16%;
+    left: 14%;
     top: 12px;
     font-size: 16px;
 }
