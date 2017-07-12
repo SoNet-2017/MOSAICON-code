@@ -1,4 +1,4 @@
-<div class="views"  ng-controller="UserRegistrationCtrl as $ctrl">
+<div class="views login"  ng-controller="UserRegistrationCtrl as $ctrl">
 
 <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">Login failed! {{ error.message }}</div>
 
@@ -59,6 +59,6 @@
         <input type="password" class="form-control" id="txtPass2" placeholder="Confirm password" name="password2" ng-model="user.password2" />
     </div>
 
-    <button type="submit" class="btn btn-success center-block">Register</button>
+    <button type="submit" class="btn btn-success center-block loginBtn">Register</button>
 </form>
 </div>

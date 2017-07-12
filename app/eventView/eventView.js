@@ -11,6 +11,7 @@ angular.module('myApp.eventView',
         "com.2fdevs.videogular.plugins.controls",
         "com.2fdevs.videogular.plugins.overlayplay",
         "com.2fdevs.videogular.plugins.poster",
+        "com.2fdevs.videogular.plugins.buffering",
         'myApp.events',
         'myApp.users',
         'myApp.likes'
@@ -42,6 +43,78 @@ angular.module('myApp.eventView',
             var user_id = firebase.auth().currentUser.uid;
             $scope.dati.id = user_id;
             var event_id = $routeParams.eventId;
+
+            /* Modal */
+            var vids = $("video");
+            $.each(vids, function() {
+                this.controls = false;
+            });
+            //Loop though all Video tags and set Controls as false
+
+            $scope.openNav = function() {
+                document.getElementById("myNav").style.height = "100%";
+            };
+
+            $scope.closeNav = function() {
+                document.getElementById("myNav").style.height = "0%";
+            };
+
+            $scope.openModal = function() {
+                document.getElementById('myModal').style.display = "block";
+            };
+
+            $scope.openSingleModal = function() {
+                document.getElementById('mySingleModal').style.display = "block";
+            };
+
+            $scope.closeModal = function() {
+                var vids = $("video.clip");
+                $.each(vids, function() {
+                    this.load();
+                    //this.pause();
+                });
+                document.getElementById('myModal').style.display = "none";
+            };
+
+            $scope.closeSingleModal = function() {
+                document.getElementById('mySingleModal').style.display = "none";
+            };
+
+            $scope.openGalleryModal = function() {
+                document.getElementById('myGalleryModal').style.display = "block";
+            };
+
+            $scope.closeGalleryModal = function() {
+                document.getElementById('myGalleryModal').style.display = "none";
+            }
+
+            //$scope.showSlides(slideIndex);
+
+            $scope.plusSlides = function(n) {
+                $scope.showSlides(slideIndex += n);
+            }
+
+            $scope.currentSlide = function(n) {
+                $scope.showSlides(slideIndex = n);
+            }
+
+            $scope.showSlides = function(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                //var dots = document.getElementsByClassName("demo");
+                //var captionText = document.getElementById("caption");
+                if (n > slides.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                //for (i = 0; i < dots.length; i++) {
+                //    dots[i].className = dots[i].className.replace(" active", "");
+                //}
+                slides[slideIndex-1].style.display = "block";
+                //dots[slideIndex-1].className += " active";
+                //captionText.innerHTML = dots[slideIndex-1].alt;
+            }
 
             $scope.dati.event = oneEvent.getOneEvent($routeParams.eventId);
 
@@ -172,15 +245,9 @@ angular.module('myApp.eventView',
 
             this.config = {
                 sources: [
-                    {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/audios/videogular.mp3"), type: "audio/mpeg"}
+                    {src: $sce.trustAsResourceUrl('https://firebasestorage.googleapis.com/v0/b/mosaicon-ffefe.appspot.com/o/eventsVid%2FAudio.mp3?alt=media&token=dc72161c-f7c9-4a76-998a-dfb432286a1e'), type: 'audio/mpeg'}
                 ],
-                theme: "../../lib/bower_components/videogular-themes-default/videogular.css",
-
-                plugins: {
-                    controls: {
-
-                    }
-                }
+                theme: '../../../MOSAICON-code/lib/bower_components/videogular-themes-default/videogular.css'
             };
             controller.onPlayerReady = function(API) {
                 controller.API = API;
@@ -214,16 +281,16 @@ angular.module('myApp.eventView',
                     controller.API.play();
                     $rootScope.mainVideoCtrl.API.play();
                     if (slideIndex===1) {
-                        controller.moveTo(30);
-                        $rootScope.mainVideoCtrl.moveTo(30);
+                        controller.moveTo(157);
+                        $rootScope.mainVideoCtrl.moveTo(157);
                     }
                     if (slideIndex===2) {
-                        controller.moveTo(45);
-                        $rootScope.mainVideoCtrl.moveTo(45);
+                        controller.moveTo(596);
+                        $rootScope.mainVideoCtrl.moveTo(596);
                     }
                     if (slideIndex===3) {
-                        controller.moveTo(15);
-                        $rootScope.mainVideoCtrl.moveTo(15);
+                        controller.moveTo(1244);
+                        $rootScope.mainVideoCtrl.moveTo(1244);
                     }
                 } else {
                     this.pause();
@@ -242,12 +309,12 @@ angular.module('myApp.eventView',
 
             this.config = {
                 sources: [
-                    {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.mp4"), type: "video/mp4"}
+                    {src: $sce.trustAsResourceUrl('https://firebasestorage.googleapis.com/v0/b/mosaicon-ffefe.appspot.com/o/eventsVid%2FBW.mp4?alt=media&token=4f14d834-d7b1-48d2-abec-65777429b2aa'), type: 'video/mp4'}
                 ],
-                theme: "../../lib/bower_components/videogular-themes-default/videogular.css",
+                theme: '../../../MOSAICON-code/lib/bower_components/videogular-themes-default/videogular.css',
 
                 plugins: {
-                    poster: "../../images/VG - playover.jpg",
+                    //poster: 'https://firebasestorage.googleapis.com/v0/b/mosaicon-ffefe.appspot.com/o/eventsVid%2FVG%20-%20playover.jpg?alt=media&token=d8bcf42b-ad0e-4817-b746-5d836d456afc',
                     controls: {
 
                     }
@@ -272,76 +339,4 @@ angular.module('myApp.eventView',
         }]
     );
 
-/* Modal */
-var vids = $("video");
-$.each(vids, function() {
-    this.controls = false;
-});
-//Loop though all Video tags and set Controls as false
-
-function openNav() {
-    document.getElementById("myNav").style.height = "100%";
-}
-
-function closeNav() {
-    document.getElementById("myNav").style.height = "0%";
-}
-
-function openModal() {
-    document.getElementById('myModal').style.display = "block";
-}
-
-function openSingleModal() {
-    document.getElementById('mySingleModal').style.display = "block";
-}
-
-function closeModal() {
-    var vids = $("video.clip");
-    $.each(vids, function() {
-        this.load();
-        //this.pause();
-    });
-    document.getElementById('myModal').style.display = "none";
-}
-
-function closeSingleModal () {
-    document.getElementById('mySingleModal').style.display = "none";
-}
-
-function openGalleryModal() {
-    document.getElementById('myGalleryModal').style.display = "block";
-}
-
-function closeGalleryModal() {
-    document.getElementById('myGalleryModal').style.display = "none";
-}
-
 var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    //var dots = document.getElementsByClassName("demo");
-    //var captionText = document.getElementById("caption");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    //for (i = 0; i < dots.length; i++) {
-    //    dots[i].className = dots[i].className.replace(" active", "");
-    //}
-    slides[slideIndex-1].style.display = "block";
-    //dots[slideIndex-1].className += " active";
-    //captionText.innerHTML = dots[slideIndex-1].alt;
-}
-
