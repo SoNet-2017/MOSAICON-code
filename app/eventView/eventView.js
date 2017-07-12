@@ -34,8 +34,8 @@ angular.module('myApp.eventView',
         })
     }])
 
-    .controller('eventViewCtrl', ['$scope', '$rootScope', '$routeParams', 'oneEvent', '$firebaseAuth', '$firebaseStorage', 'UsersChatService', '$location', 'Likes',
-        function ($scope, $rootScope, $routeParams, oneEvent, $firebaseAuth, $firebaseStorage, UsersChatService, $location, Likes) {
+    .controller('eventViewCtrl', ['$scope', '$rootScope', '$routeParams', 'oneEvent', '$firebaseAuth', '$firebaseStorage', 'UsersInfoService', '$location', 'Likes',
+        function ($scope, $rootScope, $routeParams, oneEvent, $firebaseAuth, $firebaseStorage, UsersInfoService, $location, Likes) {
 
             $scope.dati = {};
             //$scope.dati.currentView = "calendar";
@@ -134,7 +134,7 @@ angular.module('myApp.eventView',
 
                     if ($scope.dati.content) {
 
-                        $scope.dati.user = UsersChatService.getUserInfo(user_id);
+                        $scope.dati.user = UsersInfoService.getUserInfo(user_id);
 
                         $scope.dati.user.$loaded().then(function () {
 
@@ -289,8 +289,8 @@ angular.module('myApp.eventView',
                         $rootScope.mainVideoCtrl.moveTo(596);
                     }
                     if (slideIndex===3) {
-                        controller.moveTo(1244);
-                        $rootScope.mainVideoCtrl.moveTo(1244);
+                        controller.moveTo(765);
+                        $rootScope.mainVideoCtrl.moveTo(765);
                     }
                 } else {
                     this.pause();

@@ -38,6 +38,21 @@ angular.module('myApp.users.usersService', [])
                 });
             },
 
+            registerNewUserInfo_noPic: function (userId, name, surname, email, nickname, age, citta, infos) {
+                //add the user to list of users and set the logged value to true
+                var ref = firebase.database().ref().child("users").child(userId);
+                // create a synchronized array
+                ref.set({
+                    name: name,
+                    surname: surname,
+                    email: email,
+                    nickname: nickname,
+                    age: age,
+                    citta: citta,
+                    infos: infos
+                });
+            },
+
             updateUserInfo: function (userId, name, surname, nickname, age, citta, infos, imgPath) {
                 var ref = firebase.database().ref().child("users").child(userId);
 

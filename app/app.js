@@ -23,7 +23,6 @@ angular.module('myApp', [
     'myApp.calendar',
     'myApp.calendarView',
     'myApp.mapView',
-    'myApp.chatView',
     'myApp.passportView',
     'myApp.userRegistrationView',
     'myApp.fileUpload',
