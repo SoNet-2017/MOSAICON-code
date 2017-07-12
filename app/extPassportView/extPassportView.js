@@ -22,13 +22,17 @@ angular.module('myApp.extPassportView', ['ngRoute'])
         })
     }])
 
-    .controller('extProfileCtrl', ['$scope', '$rootScope', 'UsersInfoService', '$routeParams',
-        function($scope, $rootScope, UsersInfoService, $routeParams) {
+    .controller('extProfileCtrl', ['$scope', '$rootScope', 'UsersInfoService', '$routeParams', 'oneEvent',
+        function($scope, $rootScope, UsersInfoService, $routeParams, oneEvent) {
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
         //$rootScope.dati.currentView = "passport";
         $scope.dati.user = UsersInfoService.getUserInfo($routeParams.passportId);
         $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyGzdO_rC3i7oXldFLWJmVsDP5MCvBqZs";
+            $scope.dati.user_id = $routeParams.passportId;
+
+
+            $scope.dati.content = oneEvent.getContent(0);
 
             $scope.dati.user.$loaded().then(function () {
                 console.log($scope.dati.user.name);

@@ -702,6 +702,11 @@ img.hover-shadow {
     font-size: 18px;
 
 }
+
+#uploadmedia{
+
+    padding-left: 10px;
+}
 /* Passport
 #passport {
 
@@ -726,9 +731,10 @@ img.hover-shadow {
     filter: grayscale(100%);
 }
 
-#PippoMap {
+.PippoMap {
     height: 155px;
     width: 155px;
+    position: relative;
 }
 
 

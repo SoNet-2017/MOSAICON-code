@@ -19,14 +19,17 @@ angular.module('myApp.passportView', ['ngRoute'])
   })
 }])
 
-.controller('userProfileCtrl', ['$scope', '$rootScope', 'UsersInfoService', 'Users', 'currentAuth', '$firebaseAuth', '$location',
-    function($scope, $rootScope, UsersInfoService, Users, currentAuth, $firebaseAuth, $location) {
+.controller('userProfileCtrl', ['$scope', '$rootScope', 'UsersInfoService', 'Users', 'currentAuth', '$firebaseAuth', '$location', 'oneEvent',
+    function($scope, $rootScope, UsersInfoService, Users, currentAuth, $firebaseAuth, $location, oneEvent) {
     $scope.dati={};
     //set the variable that is used in the main template to show the active button
     $rootScope.dati.currentView = "passport";
     $scope.dati.user = UsersInfoService.getUserInfo(currentAuth.uid);
+    $scope.dati.user_id = currentAuth.uid;
         $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyGzdO_rC3i7oXldFLWJmVsDP5MCvBqZs";
 
+
+        $scope.dati.content = oneEvent.getContent(0);
 
     // function called when the "logout" button will be pressed
     $scope.logout = function () {
