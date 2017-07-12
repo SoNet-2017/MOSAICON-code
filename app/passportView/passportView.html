@@ -19,10 +19,11 @@
                 <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}">
                     <ng-map class="Gmap" center="current-location" zoom="11" id="PippoMap">
                         <info-window class="container" position="current-location">
-                            <!--    <marker ng-repeat="pos in dati.vm.positions" position="{{pos.lat}},{{pos.lng}}"></marker> -->
+                            <marker position="current-location"></marker>
                     </ng-map>
                 </div>
             </div>
+
         </div>
 
     </div>

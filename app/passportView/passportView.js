@@ -27,6 +27,7 @@ angular.module('myApp.passportView', ['ngRoute'])
     $scope.dati.user = UsersInfoService.getUserInfo(currentAuth.uid);
         $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyGzdO_rC3i7oXldFLWJmVsDP5MCvBqZs";
 
+
     // function called when the "logout" button will be pressed
     $scope.logout = function () {
         //save the new status in the database (we do it before the actual logout because we can write in the database only if the user is logged in)
