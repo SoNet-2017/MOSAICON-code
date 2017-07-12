@@ -64,17 +64,6 @@
 
     <div id="mySingleModal" class="modal" ng-controller="eventViewCtrl as $ctrl">
         <div class="container" id="modalHeader">
-
-            <!-- Alert
-
-            <div class="alert alert-success alert-dismissible" id="alert" role="alert" ng-if="dati.feedback">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true" >&times;</span>
-                </button>
-                {{dati.feedback}}
-            </div>
-            -->
-
             <span id="menu" style="font-size:30px;cursor:pointer" onclick="openNav()">+</span>
             <span class="close-cursor" id="X" onclick="closeSingleModal()">&times;</span>
         </div>
@@ -82,6 +71,23 @@
         <div id="myNav" class="overlay">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <div class="overlay-content">
+
+                <!-- Alerts -->
+
+                <div class="alert alert-success alert-dismissible" role="alert" ng-if="dati.feedback">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ dati.feedback }}</div>
+
+                <div class="alert alert-danger alert-dismissible" role="alert" ng-if="dati.feedback_err">
+
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                    {{ dati.feedback_err }}</div>
+
+
                 <form role="form" ng-submit="addImage()">
                 <file-upload on-change="$ctrl.onChange">
                     <!-- <span id="addMedia" class="glyphicon glyphicon-upload"></span> -->
@@ -91,7 +97,7 @@
                     <textarea maxlength="150" type="text" class="form-control" id="commento" placeholder="Tell your Experience" ng-model="dati.content"></textarea>
                 </div>
 
-                    <button type="submit" class="btn btn-success center-block" id="upImg" onclick="closeNav()">Upload</button>
+                    <button type="submit" class="btn btn-success center-block" id="upImg">Upload</button>
                 </form>
             </div>
         </div>

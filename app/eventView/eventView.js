@@ -54,46 +54,72 @@ angular.module('myApp.eventView',
 
             $scope.addImage = function() {
 
+                $scope.dati.feedback = null;
+                $scope.dati.feedback_err = null;
+
                 if ($scope.fileToUpload != null) {
 
-                    $scope.dati.user = UsersChatService.getUserInfo(user_id);
+                    if ($scope.dati.content) {
 
-                    $scope.dati.user.$loaded().then(function () {
+                        $scope.dati.user = UsersChatService.getUserInfo(user_id);
 
-                        //get the name of the file
-                        var fileName = $scope.fileToUpload.name;
-                        //specify the path in which the file should be saved on firebase
-                        var storageRef = firebase.storage().ref("eventsImg/" + fileName);
-                        $scope.storage = $firebaseStorage(storageRef);
-                        var uploadTask = $scope.storage.$put($scope.fileToUpload);
-                        uploadTask.$complete(function (snapshot) {
-                            $scope.dati.img_url = snapshot.downloadURL;
+                        $scope.dati.user.$loaded().then(function () {
 
-                            oneEvent.uploadContent($scope.dati.content, event_id, $scope.dati.user.nickname, $scope.dati.img_url, user_id).then(function (ref) {
-                                var contentId = ref.key;
+                            //get the name of the file
+                            var fileName = $scope.fileToUpload.name;
+                            //specify the path in which the file should be saved on firebase
+                            var storageRef = firebase.storage().ref("eventsImg/" + fileName);
+                            $scope.storage = $firebaseStorage(storageRef);
 
-                                Likes.createRecord(event_id, contentId, user_id).then(function(ref) {
+                            var uploadTask = $scope.storage.$put($scope.fileToUpload);
+                            uploadTask.$complete(function (snapshot) {
+                                $scope.dati.img_url = snapshot.downloadURL;
 
-                                    var recordId = ref.key;
-                                    Likes.updateRecordId(event_id, contentId, recordId);
-                                    oneEvent.updateContent(event_id, contentId, recordId);
-                                    $scope.dati.feedback = "upload done";
+                                var s = $scope.dati.img_url.toString();
+                                console.log(s);
+                                var s1 = ".jpg";
+                                var s2 = ".png";
 
-                                })
+                                if (s.indexOf(s1) !== -1 || s.indexOf(s2) !== -1) {
 
+                                    oneEvent.uploadContent($scope.dati.content, event_id, $scope.dati.user.nickname, $scope.dati.img_url, user_id).then(function (ref) {
+                                        var contentId = ref.key;
+
+                                        Likes.createRecord(event_id, contentId, user_id).then(function (ref) {
+
+                                            var recordId = ref.key;
+                                            Likes.updateRecordId(event_id, contentId, recordId);
+                                            oneEvent.updateContent(event_id, contentId, recordId);
+                                            $scope.dati.feedback = "upload done";
+
+                                        })
+
+                                    });
+
+                                }
+
+                                else {
+
+                                    $scope.dati.feedback_err = "please choose a .jpg or .png";
+
+                                }
                             });
 
                         });
+                    }
 
-                    });
+                    else {
+
+                        $scope.dati.feedback_err = "please leave a comment";
+
+                    }
+
                 }
 
                 else {
 
-                    //oneEvent.updateUserInfo(userId, $scope.dati.user.name, $scope.dati.user.surname, $scope.dati.user.nickname, $scope.dati.user.nascita, $scope.dati.user.citta, $scope.dati.user.infos, path);
-
+                    $scope.dati.feedback_err = "please add a image";
                 }
-
 
                 $location.path("/eventView/" + event_id);
 
