@@ -32,7 +32,7 @@ angular.module('myApp.mapView', ['ngRoute', 'myApp.events'])
             $rootScope.dati.currentView = "map";
 
             $scope.dati.events = Events.getData();
-            $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdX2NDbEB1g1-13kcdDPkAY3lpUggnPPE";
+            $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyGzdO_rC3i7oXldFLWJmVsDP5MCvBqZs";
             $scope.dati.events.$loaded().then(function() {
                 //console.log($scope.dati.events.length);
 

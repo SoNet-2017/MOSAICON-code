@@ -24,6 +24,7 @@ angular.module('myApp.passportView', ['ngRoute'])
     //set the variable that is used in the main template to show the active button
     $rootScope.dati.currentView = "passport";
     $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+    $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyGzdO_rC3i7oXldFLWJmVsDP5MCvBqZs";
 
     // function called when the "logout" button will be pressed
     $scope.logout = function () {

@@ -5,18 +5,27 @@
         <div class="col-xs-12">
             <div class="page-header">
                 <h2 class="name">{{dati.user.name}} {{dati.user.surname}}</h2>
+                <a href="#!/editPassportView" data-toggle="modal" data-target="#myModal" id="edit"><span class="glyphicon glyphicon-cog"></span></a>
                 <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
             </div>
-            <div class="container-fluid">
-                <a href="#!/editPassportView" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog"></span></a>
+            <div class="col-xs-6">
                 <h5>@{{dati.user.nickname}}</h5>
                 <h5>Town: {{dati.user.citta}}</h5>
                 <h5>Age: {{dati.user.age}}</h5>
                 <h5>About me: {{dati.user.infos}}</h5>
                 <h5>E-mail: {{dati.user.email}}</h5>
             </div>
-
+            <div class="col-xs-6">
+                <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}">
+                    <ng-map class="Gmap" center="current-location" zoom="11" id="PippoMap">
+                        <info-window class="container" position="current-location">
+                            <!--    <marker ng-repeat="pos in dati.vm.positions" position="{{pos.lat}},{{pos.lng}}"></marker> -->
+                    </ng-map>
+                </div>
+            </div>
         </div>
+
     </div>
     </div>
+
 </div>
