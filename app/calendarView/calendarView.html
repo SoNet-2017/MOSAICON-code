@@ -18,16 +18,17 @@
 </head>
 
 <body>
-    <div class="container" id="calendarContainer">
+    <div class="container blocco" id="calendarContainer">
         <calendar class="calen" selected="day" elenco-eventi="allEvents.elencoEventi"></calendar>
     </div>
 
-    <div class="container" id="card" ng-repeat="evento in allEvents.elencoEventi | filter: {'data' : day.format('DD/MM/YYYY')} : true">
-        <div class="card">
-            <div class="card-header danger-color-dark white-text" id="cardHeader">
-                <b>{{evento.ora_i}}</b> - {{evento.nome}} | {{evento.luogo}}
-                <a href="#!/eventView/{{evento.$id}}"><button id="join">Join</button></a>
-            </div>
+    <div class="container" id="calResult">
+        <div class="container thumbnail tall resultCal" ng-repeat="evento in allEvents.elencoEventi | filter: {'data' : day.format('DD/MM/YYYY')} : true">
+            <div class="card" id="resultCal">
+                <b>{{evento.ora_i}}/{{evento.ora_f}}</b></br>{{evento.nome}}</br>@{{evento.luogo}}
+                <img ng-src={{evento.img}} class="thumb imgCal">
+                <a href="#!/eventView/{{evento.$id}}" id="joint"><button id="join">Join</button></a>
+             </div>
         </div>
     </div>
 </body>
