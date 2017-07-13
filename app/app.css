@@ -54,13 +54,16 @@ body {
     top: 0;
 }
 
+.scritte {
+    color: snow;
+}
+
 a {
     color: firebrick;
 }
 
 /* Navigation */
 #navtop {
-
     background-color: #080808;
 }
 

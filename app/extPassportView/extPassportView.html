@@ -25,9 +25,9 @@
                     <div class="row" id="grid">
                         <div ng-repeat="content in dati.content | filter: {'user_id' : dati.user_id} : true">
                             <a href="#!/eventView/{{content.event_id}}">
-                                <p class="nomeRicerca">{{content.comment}}</p>
+                                <p class="nomeRicerca scritte">{{content.comment}}</p>
                                 <img class="img-responsive" ng-src="{{content.url}}" style="border: 1px solid firebrick">
-                                <p class="descrRicerca">{{content.like_count}} likes</p>
+                                <p class="descrRicerca scritte">{{content.like_count}} likes</p>
                             </a>
                         </div>
                     </div>
