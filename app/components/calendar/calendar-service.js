@@ -7,7 +7,7 @@
 angular.module('myApp.calendar.calendarService', [
 ])
 
-.factory('calendarService', function commonProp($firebaseArray, $firebaseObject) {
+.factory('calendarService', function($firebaseArray, $firebaseObject) {
 
     return {
         getEventInfo: function(id) {
