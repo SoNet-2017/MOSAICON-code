@@ -12,9 +12,8 @@ The demo view is a past event page with a innovative mediaplayer.
 <br/>Above the audio player there is a gallery of pictures of the event that scrolls horizontally. You can upload your own picture (thanks to Firebase server) and tell your experience or view other users' pictures in a modal that scrolls vertically.
 
 <h2>Navigation</h2>
-The menu is a tipical social network app menu.
+The menu is a typical social network app menu.
 <br/>In the top bar, videocamera and chat icons, are disabled. The bottom bar got 5 icons to navigate to Finder, Timeline, On Air, Passport and Floor that stand for Search, Calendar, Home, Profile and Map.
-Danilo Ronchi, [13.07.17 18:02]
 
 <h2>Available features</h2>
 <div>
@@ -72,7 +71,7 @@ Danilo Ronchi, [13.07.17 18:02]
 </li>
 
 <li>
-<p>Videogular: <a href="http://www.videogular.com/"></a></p>
+<p>Videogular: <a href="http://www.videogular.com/">http://www.videogular.com/</a></p>
 </li>
 
 <li>
