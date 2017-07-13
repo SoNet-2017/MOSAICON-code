@@ -52,6 +52,7 @@ The menu is a typical social network app menu.
 </li>
 
 
+
 </ul>
 
 
@@ -87,5 +88,28 @@ The menu is a typical social network app menu.
 </li>
 
 </ul>
+
+</div>
+
+<h2>Limitations</h2>
+
+<div>
+
+<ul>
+
+<li>
+<p>When searching for an event by date, the <strong>calendar</strong> template (found online) doesn't permit to click on
+past dates. For simplicity purposes, all the events are scheduled on July 31th and just one contains the whole
+media content uploaded by user ("NotteTechno III", eventId = 0).</p>
+</li>
+
+<li>
+<p>In the passport and external passport view is possibile to see pictures uploaded by that user; actually the content
+is relative to just one event ("NotteTechno III", eventId = 0).</p>
+</li>
+
+
+</ul>
+
 
 </div>
