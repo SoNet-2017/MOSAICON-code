@@ -5,6 +5,36 @@ body {
     background-color: #080808;
 }
 
+.views {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+}
+
+.blocco {
+    position: fixed;
+    padding: 0;
+}
+
+.glyphicon {
+    top: 0;
+}
+
+.scritte {
+    color: snow;
+}
+
+a {
+    color: firebrick;
+}
+
+span {
+    width: 100%;
+}
+
+/* Home */
 #backImg {
     position: fixed;
     z-index: -5;
@@ -21,18 +51,7 @@ body {
     font-size: 30px;
 }
 
-.views {
-    padding-top: 70px;
-    padding-bottom: 70px;
-    padding-left: 0;
-    padding-right: 0;
-    position: relative;
-}
-
-.blocco {
-   position: fixed;
-    padding: 0;
-}
+/* Login */
 
 .login {
     padding-left: 5%;
@@ -48,18 +67,6 @@ body {
     padding-left: 22%;
     color: snow;
     font-size: 20px;
-}
-
-.glyphicon {
-    top: 0;
-}
-
-.scritte {
-    color: snow;
-}
-
-a {
-    color: firebrick;
 }
 
 /* Navigation */
@@ -80,7 +87,6 @@ a {
     margin-right: -10px;
 }
 
-/* Navigation */
 .navbar-center {
     margin: 0 auto;
     display: table;
@@ -98,15 +104,10 @@ a {
 .navbar-default .navbar-center > .active > a {
   color: firebrick;
   background-color: inherit;
-
 }
 .navbar-default .navbar-center > .active > a:hover {
     color: firebrick;
     background-color: transparent;
-}
-
-.navbar-default .navbar-center > li > a:hover {
-
 }
 
 .navbar-nav > li > a {
@@ -120,51 +121,34 @@ a {
 }
 
 .navbar-default .navbar-center > li > a {
-
   color: snow;
 }
 
 .navbar-default {
-
-
     border-color: firebrick;
 }
 
 #iconasx {
-
   margin-left: -10px;
 }
 
 #iconadx {
-
   margin-right: -10px;
 }
 
 #iconafake1 {
-
   margin-left: -10px;
   visibility: hidden;
 }
 
 #iconafake2 {
-
   margin-left: -10px;
   visibility: hidden;
-
 }
 
 .fakelink {
-
   visibility: hidden;
-
 }
-
-
-span {
-
-    width: 100%;
-}
-
 
 /* Videogular */
 .videogular-container {
@@ -250,7 +234,7 @@ span {
     width: 33%;
 }
 
-/* The Modal (background) */
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -264,7 +248,6 @@ span {
     background-color: #080808;
 }
 
-/* Modal Content */
 .modal-content {
     position: relative;
     background-color: #080808;
@@ -278,7 +261,6 @@ video::-webkit-media-controls {
     display: none;
 }
 
-/* The Close Button */
 .close-cursor{
     color: white;
     position: relative;
@@ -287,17 +269,6 @@ video::-webkit-media-controls {
     font-size: 40px;
     font-weight: bold;
     z-index: 1;
-}
-
-.syncTime {
-    margin-left: 40%;
-    color: snow;
-}
-
-#menu {
-    position: relative;
-    left: 25px;
-    top: 2px;
 }
 
 .close:hover,
@@ -376,6 +347,17 @@ img.hover-shadow {
 
 .hover-shadow:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+.syncTime {
+    margin-left: 40%;
+    color: snow;
+}
+
+#menu {
+    position: relative;
+    left: 25px;
+    top: 2px;
 }
 
 #slideshow {
@@ -509,7 +491,8 @@ img.hover-shadow {
 .thumbnail > img, .thumbnail a > img {
     height: 148px;
 }
-#grid {
+
+.grid {
     padding: 0px;
     margin-top: 50px;
     margin-left: 0px;
@@ -569,10 +552,6 @@ img.hover-shadow {
     font-size: 20px;
     margin-right: 50px;
     margin-bottom: -30px;
-    /*float: left;
-    width: 75%;
-    height: 48px;
-    padding: 5%; */
 }
 
 #modalHeader {
@@ -585,6 +564,23 @@ img.hover-shadow {
     background-color: #080808;
     border: 1px solid firebrick;
 }
+
+.scrollbox {
+    float: left;
+    margin-right: -30000px;
+    z-index: 0;
+}
+
+#scroll {
+    z-index: -1;
+    width: 375px;
+    height: 125px;
+    background: #080808;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+/* Overlay */
 
 #X {
     position: fixed;
@@ -641,20 +637,7 @@ img.hover-shadow {
     }
 }
 
-.scrollbox {
-    float: left;
-    margin-right: -30000px;
-    z-index: 0;
-}
-
-#scroll {
-    z-index: -1;
-    width: 375px;
-    height: 125px;
-    background: #080808;
-    overflow: auto;
-    white-space: nowrap;
-}
+/* Profilo */
 
 .avatar {
 
@@ -712,12 +695,6 @@ img.hover-shadow {
 
     padding-left: 10px;
 }
-/* Passport
-#passport {
-
-    margin-left: 80px;
-
-} */
 
 /* Gmaps */
 #mappa {
@@ -825,15 +802,6 @@ img.hover-shadow {
 #filterIcon:hover {
     background-color: #080808;
 }
-
-/* Change background color of buttons on hover
-.tablink:hover {
-    background-color: firebrick;
-}
-
-.tablink:active {
-    background-color: firebrick;
-} */
 
 button.selected{
     color:firebrick;

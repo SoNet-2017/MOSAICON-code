@@ -28,7 +28,6 @@ angular.module('myApp.calendarView', ['ngRoute'])
 
             $scope.day = moment();
 
-
             $scope.allEvents = {};
             $scope.allEvents.elencoEventi = calendarService.getAllEvents();
 
@@ -42,8 +41,6 @@ angular.module('myApp.calendarView', ['ngRoute'])
                 $scope.selectedEvent = calendarService.getEventInfo(id);
                 console.log($scope.day);
             };
-
-
 
             //$scope.t = {};
 

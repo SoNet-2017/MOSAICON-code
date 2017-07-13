@@ -1,20 +1,23 @@
+<!-- Menù -->
 <div class="blocco">
-<div class="input-group" id="ricerca">
-    <input type="text" class="form-control" placeholder="Search">
-    <span class="input-group-btn">
-        <button class="btn btn-default glyphicon glyphicon-search" id="searchBtn" type="button"></button>
-      </span>
+    <div class="input-group" id="ricerca">
+        <input type="text" class="form-control" placeholder="Search">
+        <span class="input-group-btn">
+            <button class="btn btn-default glyphicon glyphicon-search" id="searchBtn" type="button"></button>
+          </span>
+    </div>
+
+    <!-- Filter tab -->
+    <button class="tablink selected" ng-click="showAll()">all</button>
+    <button class="tablink" ng-click="showEvent()">events</button>
+    <button class="tablink" ng-click="showClubbers()">clubbers</button>
+    <button class="tablink" ng-click="showDJs()">DJs</button>
+    <span class="tablink glyphicon glyphicon-tasks" id="filterIcon"></span>
 </div>
 
-<button class="tablink selected" onclick="showAll()">all</button>
-<button class="tablink" onclick="showEvent()">events</button>
-<button class="tablink" onclick="showClubbers()">clubbers</button>
-<button class="tablink" onclick="showDJs()">DJs</button>
-<span class="tablink glyphicon glyphicon-tasks" id="filterIcon"></span>
-</div>
-
+<!--  Risultati ricerca -->
 <div class="container" id="resultContainer">
-    <div class="row" id="grid">
+    <div class="row grid">
         <div class="col-lg-3 col-md-3 col-xs-4 thumb tall eventGrid" ng-repeat="evento in dati.events">
             <a class="thumbnail tall result" href="#!/eventView/{{evento.$id}}">
                 <p class="nomeRicerca">{{evento.nome}}</p>

@@ -1,33 +1,36 @@
 <div class="container-fluid views">
-    <div id="passport">
-    <h1 class="avatar_cont"><img src={{dati.user.img_url}} class="avatar"></h1>
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="page-header">
-                <h2 class="name">{{dati.user.name}} {{dati.user.surname}}</h2>
-                <a href="#!/editPassportView" data-toggle="modal" data-target="#myModal" id="edit"><span class="glyphicon glyphicon-cog"></span></a>
-                <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
-            </div>
-            <div class="col-xs-6">
-                <h5>@{{dati.user.nickname}}</h5>
-                <h5>Town: {{dati.user.citta}}</h5>
-                <h5>Age: {{dati.user.age}}</h5>
-                <h5>About me: {{dati.user.infos}}</h5>
-                <h5>E-mail: {{dati.user.email}}</h5>
-            </div>
-            <div class="col-xs-6">
-                <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}">
-                    <ng-map class="Gmap PippoMap" center="current-location" zoom="11">
-                        <info-window class="container" position="current-location">
-                            <marker position="current-location"></marker>
-                    </ng-map>
+    <div class="passport">
+        <h1 class="avatar_cont"><img src={{dati.user.img_url}} class="avatar"></h1>
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- User -->
+                <div class="page-header">
+                    <h2 class="name">{{dati.user.name}} {{dati.user.surname}}</h2>
+                    <a href="#!/editPassportView" data-toggle="modal" data-target="#myModal" id="edit"><span class="glyphicon glyphicon-cog"></span></a>
+                    <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
+                </div>
+                <!-- Info -->
+                <div class="col-xs-6">
+                    <h5>@{{dati.user.nickname}}</h5>
+                    <h5>Town: {{dati.user.citta}}</h5>
+                    <h5>Age: {{dati.user.age}}</h5>
+                    <h5>About me: {{dati.user.infos}}</h5>
+                    <h5>E-mail: {{dati.user.email}}</h5>
+                </div>
+                <!-- Mappa del passaporto -->
+                <div class="col-xs-6">
+                    <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}">
+                        <ng-map class="Gmap PippoMap" center="current-location" zoom="11">
+                            <info-window class="container" position="current-location">
+                                <marker position="current-location"></marker>
+                        </ng-map>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
+        <!-- Feed immagini personali -->
         <div class="container">
-            <div class="row" id="grid">
+            <div class="row grid">
                 <div ng-repeat="content in dati.content | filter: {'user_id' : dati.user_id} : true">
                     <a href="#!/eventView/{{content.event_id}}">
                         <p class="nomeRicerca scritte">{{content.comment}}</p>

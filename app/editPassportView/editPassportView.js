@@ -30,46 +30,34 @@ angular.module('myApp.editPassportView', ['ngRoute'])
         $scope.dati.user.imgPath= "";
         $rootScope.dati.currentView = "passport";
 
-            $scope.updatePassport = function() {
+        $scope.updatePassport = function() {
+            if ($scope.dati.user.name !== "" && $scope.dati.user.surname !== null && $scope.dati.user.email !== null && $scope.dati.user.nickname !== null && $scope.dati.user.age !== null && $scope.dati.user.citta !== null && $scope.dati.user.infos !== null) {
+                if ($scope.fileToUpload != null) {
+                    //get the name of the file
+                    var fileName = $scope.fileToUpload.name;
+                    //specify the path in which the file should be saved on firebase
+                    var storageRef = firebase.storage().ref("passportImg/" + fileName);
+                    $scope.storage = $firebaseStorage(storageRef);
+                    var uploadTask = $scope.storage.$put($scope.fileToUpload);
+                    uploadTask.$complete(function (snapshot) {
+                        $scope.dati.user.imgPath = snapshot.downloadURL;
 
-                if ($scope.dati.user.name !== "" && $scope.dati.user.surname !== null && $scope.dati.user.email !== null && $scope.dati.user.nickname !== null && $scope.dati.user.age !== null && $scope.dati.user.citta !== null && $scope.dati.user.infos !== null) {
-
-                    if ($scope.fileToUpload != null) {
-
-                        //get the name of the file
-                        var fileName = $scope.fileToUpload.name;
-                        //specify the path in which the file should be saved on firebase
-                        var storageRef = firebase.storage().ref("passportImg/" + fileName);
-                        $scope.storage = $firebaseStorage(storageRef);
-                        var uploadTask = $scope.storage.$put($scope.fileToUpload);
-                        uploadTask.$complete(function (snapshot) {
-                            $scope.dati.user.imgPath = snapshot.downloadURL;
-
-                            Users.updateUserInfo(userId, $scope.dati.user.name, $scope.dati.user.surname, $scope.dati.user.nickname, $scope.dati.user.age, $scope.dati.user.citta, $scope.dati.user.infos, $scope.dati.user.imgPath);
-                            $location.path("/passportView");
-                        });
-                    }
-
-
-                    else {
-
-                        Users.updateUserInfo_noPic(userId, $scope.dati.user.name, $scope.dati.user.surname, $scope.dati.user.nickname, $scope.dati.user.age, $scope.dati.user.citta, $scope.dati.user.infos);
+                        Users.updateUserInfo(userId, $scope.dati.user.name, $scope.dati.user.surname, $scope.dati.user.nickname, $scope.dati.user.age, $scope.dati.user.citta, $scope.dati.user.infos, $scope.dati.user.imgPath);
                         $location.path("/passportView");
-                    }
+                    });
                 }
-
                 else {
-
-                    $scope.dati.feedback = "please fill every field of text"
-
+                    Users.updateUserInfo_noPic(userId, $scope.dati.user.name, $scope.dati.user.surname, $scope.dati.user.nickname, $scope.dati.user.age, $scope.dati.user.citta, $scope.dati.user.infos);
+                    $location.path("/passportView");
                 }
+            }
+            else {
+                $scope.dati.feedback = "please fill every field of text"
+            }
+        };
 
-
-            };
-            var ctrl = this;
-            ctrl.onChange = function onChange(fileList) {
-                $scope.fileToUpload = fileList[0];
-            };
-
-
+        var ctrl = this;
+        ctrl.onChange = function onChange(fileList) {
+            $scope.fileToUpload = fileList[0];
+        };
     }]);

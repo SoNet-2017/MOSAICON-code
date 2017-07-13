@@ -26,47 +26,35 @@ angular.module('myApp.userRegistrationView', ['ngRoute'])
                     Auth.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(internalFirebaseUser) {
                         var userId = internalFirebaseUser.uid;
 
-
-                            if ($scope.fileToUpload != null) {
-
-                                //get the name of the file
-                                var fileName = $scope.fileToUpload.name;
-                                //specify the path in which the file should be saved on firebase
-                                var storageRef = firebase.storage().ref("passportImg/" + fileName);
-                                $scope.storage = $firebaseStorage(storageRef);
-                                var uploadTask = $scope.storage.$put($scope.fileToUpload);
-                                uploadTask.$complete(function (snapshot) {
-                                    $scope.user.imgPath = snapshot.downloadURL;
-                                    Users.registerNewUserInfo(userId, $scope.user.name, $scope.user.surname, $scope.user.email, $scope.user.nickname, $scope.user.age, $scope.user.citta, $scope.user.infos, $scope.user.imgPath);
-
-                                    Users.registerLogin(userId, $scope.user.email);
-                                    // login successful: redirect
-                                    $location.path("/homeView");
-
-                                });
-                            }
-
-                            else {
-
-                                Users.registerNewUserInfo_noPic(userId, $scope.user.name, $scope.user.surname, $scope.user.email, $scope.user.nickname, $scope.user.age, $scope.user.citta, $scope.user.infos);
-
+                        if ($scope.fileToUpload != null) {
+                            //get the name of the file
+                            var fileName = $scope.fileToUpload.name;
+                            //specify the path in which the file should be saved on firebase
+                            var storageRef = firebase.storage().ref("passportImg/" + fileName);
+                            $scope.storage = $firebaseStorage(storageRef);
+                            var uploadTask = $scope.storage.$put($scope.fileToUpload);
+                            uploadTask.$complete(function (snapshot) {
+                                $scope.user.imgPath = snapshot.downloadURL;
+                                Users.registerNewUserInfo(userId, $scope.user.name, $scope.user.surname, $scope.user.email, $scope.user.nickname, $scope.user.age, $scope.user.citta, $scope.user.infos, $scope.user.imgPath);
                                 Users.registerLogin(userId, $scope.user.email);
                                 // login successful: redirect
                                 $location.path("/homeView");
-
-                            }
-
+                            });
+                        }
+                        else {
+                            Users.registerNewUserInfo_noPic(userId, $scope.user.name, $scope.user.surname, $scope.user.email, $scope.user.nickname, $scope.user.age, $scope.user.citta, $scope.user.infos);
+                            Users.registerLogin(userId, $scope.user.email);
+                            // login successful: redirect
+                            $location.path("/homeView");
+                        }
                     });
                 });
         }
-
         else {
-
             $scope.dati.feedback = "please fill every field of text"
-
         }
-
     };
+
     var ctrl = this;
     ctrl.onChange = function onChange(fileList) {
         $scope.fileToUpload = fileList[0];

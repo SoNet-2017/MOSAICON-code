@@ -35,22 +35,6 @@ angular.module('myApp.searchView', ['ngRoute', 'myApp.events', 'myApp.users'])
         $scope.dati.id = user_id;
         var event_id = $routeParams.eventId;
 
-        $('button.tablink').on('click', function(){
-            $('button.tablink').removeClass('selected');
-            $(this).addClass('selected');
-        });
-
-        /*
-        $scope.filterClub = function () {
-            events.style.display = block;
-        };
-        $scope.filterClubber = function () {
-
-        };
-        $scope.filterDJ = function () {
-
-        };*/
-
         $firebaseAuth().$onAuthStateChanged(function(firebaseUser) {
             if (firebaseUser) {
                 console.log("User is yet signed in as:", firebaseUser.uid);
@@ -58,51 +42,57 @@ angular.module('myApp.searchView', ['ngRoute', 'myApp.events', 'myApp.users'])
                 $location.path("/loginView");
             }
         });
+
+        // FILTER FUNCTIONS
+        $('button.tablink').on('click', function(){
+            $('button.tablink').removeClass('selected');
+            $(this).addClass('selected');
+        });
+
+        $scope.showEvent = function() {
+            var eventGrid = document.getElementsByClassName("eventGrid");
+            var clubbersGrid = document.getElementsByClassName("userGrid");
+            //var DJsGrid = document.getElementById("superuserGrid");
+            for (var i=0; i<eventGrid.length; i++) {
+                eventGrid[i].style.display = "block";
+            }
+            for (var j=0; j<clubbersGrid.length; j++) {
+                clubbersGrid[j].style.display = "none";
+            }
+        };
+
+        $scope.showClubbers = function() {
+            var eventGrid = document.getElementsByClassName("eventGrid");
+            var clubbersGrid = document.getElementsByClassName("userGrid");
+            for (var i=0; i<eventGrid.length; i++) {
+                eventGrid[i].style.display = "none";
+            }
+            for (var j=0; j<clubbersGrid.length; j++) {
+                clubbersGrid[j].style.display = "block";
+            }
+        };
+
+        $scope.showAll = function() {
+            var eventGrid = document.getElementsByClassName("eventGrid");
+            var clubbersGrid = document.getElementsByClassName("userGrid");
+            //var DJsGrid = document.getElementById("superuserGrid");
+            for (var i=0; i<eventGrid.length; i++) {
+                eventGrid[i].style.display = "block";
+            }
+            for (var j=0; j<clubbersGrid.length; j++) {
+                clubbersGrid[j].style.display = "block";
+            }
+        };
+
+        $scope.showDJs = function() {
+            var eventGrid = document.getElementsByClassName("eventGrid");
+            var clubbersGrid = document.getElementsByClassName("userGrid");
+            //var DJsGrid = document.getElementById("superuserGrid");
+            for (var i=0; i<eventGrid.length; i++) {
+                eventGrid[i].style.display = "none";
+            }
+            for (var j=0; j<clubbersGrid.length; j++) {
+                clubbersGrid[j].style.display = "none";
+            }
+        };
     }]);
-
-function showEvent() {
-    var eventGrid = document.getElementsByClassName("eventGrid");
-    var clubbersGrid = document.getElementsByClassName("userGrid");
-    //var DJsGrid = document.getElementById("superuserGrid");
-    for (var i=0; i<eventGrid.length; i++) {
-        eventGrid[i].style.display = "block";
-    }
-    for (var j=0; j<clubbersGrid.length; j++) {
-        clubbersGrid[j].style.display = "none";
-    }
-}
-
-function showClubbers() {
-    var eventGrid = document.getElementsByClassName("eventGrid");
-    var clubbersGrid = document.getElementsByClassName("userGrid");
-    for (var i=0; i<eventGrid.length; i++) {
-        eventGrid[i].style.display = "none";
-    }
-    for (var j=0; j<clubbersGrid.length; j++) {
-        clubbersGrid[j].style.display = "block";
-    }
-}
-
-function showAll() {
-    var eventGrid = document.getElementsByClassName("eventGrid");
-    var clubbersGrid = document.getElementsByClassName("userGrid");
-    //var DJsGrid = document.getElementById("superuserGrid");
-    for (var i=0; i<eventGrid.length; i++) {
-        eventGrid[i].style.display = "block";
-    }
-    for (var j=0; j<clubbersGrid.length; j++) {
-        clubbersGrid[j].style.display = "block";
-    }
-}
-
-function showDJs() {
-    var eventGrid = document.getElementsByClassName("eventGrid");
-    var clubbersGrid = document.getElementsByClassName("userGrid");
-    //var DJsGrid = document.getElementById("superuserGrid");
-    for (var i=0; i<eventGrid.length; i++) {
-        eventGrid[i].style.display = "none";
-    }
-    for (var j=0; j<clubbersGrid.length; j++) {
-        clubbersGrid[j].style.display = "none";
-    }
-}

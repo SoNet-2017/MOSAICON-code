@@ -34,14 +34,10 @@ angular.module('myApp.mapView', ['ngRoute', 'myApp.events'])
             $scope.dati.events = Events.getData();
             $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyGzdO_rC3i7oXldFLWJmVsDP5MCvBqZs";
             $scope.dati.events.$loaded().then(function() {
-                //console.log($scope.dati.events.length);
-
-
                 var i = 0;
                 var tempEvent = [];
 
                 do {
-
                     tempEvent[i] = oneEvent.getOneEvent(i);
                     tempEvent[i].$loaded().then(function(variable) {
 
@@ -52,24 +48,9 @@ angular.module('myApp.mapView', ['ngRoute', 'myApp.events'])
 
                     i++;
                 }
-
                 while(i < $scope.dati.events.length);
 
-               /*for (var i = 0; i < $scope.dati.events.length; i++) {
-
-                    /*var event = oneEvent.getOneEvent(i);
-                    console.log(event);
-                    var indirizzo = event.indirizzo;
-                    $scope.dati.vm.positions.push({indirizzo: indirizzo});
-
-                    var lat = 45.071087 + (Math.random() / 100);
-                    var lng = 7.686567 + (Math.random() / 100);
-                    $scope.dati.vm.positions.push({lat: lat, lng: lng});
-
-
-                } */
                 console.log("vm.positions", $scope.dati.vm.positions);
 
         });
-
     }]);

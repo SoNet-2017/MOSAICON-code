@@ -7,10 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <!-- <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css"/>-->
-    <link rel="stylesheet/less" type="text/css" href="calendarView/calendarView.less">
-    <link rel="stylesheet" href="app.css"/>
-    <link rel="stylesheet" href="../lib/bower_components/videogular-themes-default/videogular.css">
+  <link rel="stylesheet/less" type="text/css" href="calendarView/calendarView.less">
+  <link rel="stylesheet" href="app.css"/>
+  <link rel="stylesheet" href="../lib/bower_components/videogular-themes-default/videogular.css">
 
   <!-- AngularJS -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
@@ -18,7 +17,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.js"></script>
 
   <!-- Bootstrap & jQuery -->
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="../lib/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
@@ -80,8 +78,6 @@
   <script src="eventView/eventView.js"></script>
   <script src="extPassportView/extPassportView.js"></script>
 
-  <!--   <script src="../lib/startbootstrap-thumbnail-gallery-gh-pages/css/thumbnail-gallery.css"></script> -->
-
 </head>
 
 <body ng-app="myApp" ng-controller="MainCtrl">
@@ -94,15 +90,11 @@
       <img id="logo" src="../images/MosaiconLogo.png">
       <li ng-if="isLogged()"><a href="#"><span class="glyphicon glyphicon-send" id="icona"></span></a></li>
       <li ng-if="!isLogged()"><a class="fakelink"><span class="glyphicon glyphicon-adjust" id="iconafake2"></span></a></li>
-
     </ul>
   </div>
 </header>
 
-<div ng-view>
-
-</div>
-
+<div ng-view></div>
 
 <footer class="navbar navbar-default navbar-fixed-bottom">
   <div class="container-fluid" id="icon-menu">

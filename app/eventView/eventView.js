@@ -34,6 +34,7 @@ angular.module('myApp.eventView',
         })
     }])
 
+    /* ViewController */
     .controller('eventViewCtrl', ['$scope', '$rootScope', '$routeParams', 'oneEvent', '$firebaseAuth', '$firebaseStorage', 'UsersInfoService', '$location', 'Likes',
         function ($scope, $rootScope, $routeParams, oneEvent, $firebaseAuth, $firebaseStorage, UsersInfoService, $location, Likes) {
 
@@ -43,6 +44,15 @@ angular.module('myApp.eventView',
             var user_id = firebase.auth().currentUser.uid;
             $scope.dati.id = user_id;
             var event_id = $routeParams.eventId;
+
+            $scope.dati.event = oneEvent.getOneEvent($routeParams.eventId);
+
+            $scope.dati.event.$loaded().then(function() {
+                $scope.dati.event.content = oneEvent.getContent(event_id);
+                $scope.dati.event.content.$loaded().then(function() {
+                    console.log($scope.dati.event.content.length);
+                });
+            });
 
             /* Modal */
             var vids = $("video");
@@ -88,8 +98,6 @@ angular.module('myApp.eventView',
                 document.getElementById('myGalleryModal').style.display = "none";
             }
 
-            //$scope.showSlides(slideIndex);
-
             $scope.plusSlides = function(n) {
                 $scope.showSlides(slideIndex += n);
             }
@@ -116,116 +124,75 @@ angular.module('myApp.eventView',
                 //captionText.innerHTML = dots[slideIndex-1].alt;
             }
 
-            $scope.dati.event = oneEvent.getOneEvent($routeParams.eventId);
-
-            $scope.dati.event.$loaded().then(function() {
-                $scope.dati.event.content = oneEvent.getContent(event_id);
-                $scope.dati.event.content.$loaded().then(function() {
-                    console.log($scope.dati.event.content.length);
-                });
-            });
-
             $scope.addImage = function() {
 
                 $scope.dati.feedback = null;
                 $scope.dati.feedback_err = null;
 
                 if ($scope.fileToUpload != null) {
-
                     if ($scope.dati.content) {
-
                         $scope.dati.user = UsersInfoService.getUserInfo(user_id);
-
                         $scope.dati.user.$loaded().then(function () {
-
                             //get the name of the file
                             var fileName = $scope.fileToUpload.name;
                             //specify the path in which the file should be saved on firebase
                             var storageRef = firebase.storage().ref("eventsImg/" + fileName);
                             $scope.storage = $firebaseStorage(storageRef);
-
                             var uploadTask = $scope.storage.$put($scope.fileToUpload);
                             uploadTask.$complete(function (snapshot) {
                                 $scope.dati.img_url = snapshot.downloadURL;
-
                                 var s = $scope.dati.img_url.toString();
                                 console.log(s);
                                 var s1 = ".jpg";
                                 var s2 = ".png";
 
                                 if (s.indexOf(s1) !== -1 || s.indexOf(s2) !== -1) {
-
                                     oneEvent.uploadContent($scope.dati.content, event_id, $scope.dati.user.nickname, $scope.dati.img_url, user_id).then(function (ref) {
                                         var contentId = ref.key;
-
                                         Likes.createRecord(event_id, contentId, user_id).then(function (ref) {
-
                                             var recordId = ref.key;
                                             Likes.updateRecordId(event_id, contentId, recordId);
                                             oneEvent.updateContent(event_id, contentId, recordId);
                                             $scope.dati.feedback = "upload done";
-
                                         })
-
                                     });
-
                                 }
-
                                 else {
-
                                     $scope.dati.feedback_err = "please choose a .jpg or .png";
-
                                 }
                             });
-
                         });
                     }
-
                     else {
-
                         $scope.dati.feedback_err = "please leave a comment";
-
                     }
-
                 }
-
                 else {
-
                     $scope.dati.feedback_err = "please add a image";
                 }
-
                 $location.path("/eventView/" + event_id);
-
             };
 
             $scope.likePic = function(event_id, contentId) {
-
                 var content = oneEvent.getContentInfo(event_id, contentId);
 
                 content.$loaded().then(function () {
                     var likes = content.like_count +1;
                     Likes.updateCount(event_id, contentId, likes);
-
                     var user_id = firebase.auth().currentUser.uid;
                     var recordId = content.record_id;
                     Likes.like(event_id, contentId, recordId, user_id);
-
                 })
-
             };
 
             $scope.dislikePic = function(event_id, contentId) {
-
                 var content = oneEvent.getContentInfo(event_id, contentId);
-
                 content.$loaded().then(function () {
                     var likes = content.like_count -1;
                     Likes.updateCount(event_id, contentId, likes);
-
                     var user_id = firebase.auth().currentUser.uid;
                     var recordId = content.record_id;
                     Likes.disLike(event_id, contentId, recordId, user_id);
-
                 })
             };
 
@@ -256,15 +223,6 @@ angular.module('myApp.eventView',
             controller.moveTo = function(sync) {
                 controller.API.seekTime(sync, false);
             };
-            /*controller.onUpdateState = function (state) {
-                var currentState = state;
-
-                if (currentState === 'play')
-                    $rootScope.mainVideoCtrl.API.play();
-                else {
-                    $rootScope.mainVideoCtrl.API.pause();
-                }
-            };*/
             controller.onUpdateTime = function (time, duration) {
                 var currentTime = time;
                 var finalTime = duration;
@@ -300,6 +258,7 @@ angular.module('myApp.eventView',
             });
         }]
     )
+
     /* Videogular */
     .controller('videoCtrl',
         ["$sce", "$rootScope", function ($sce, $rootScope) {
@@ -339,4 +298,4 @@ angular.module('myApp.eventView',
         }]
     );
 
-var slideIndex = 1;
+var slideIndex = 1; // GLOBAL VARIABLE

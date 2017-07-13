@@ -29,18 +29,8 @@
         </div>
     </div>
 
+    <!-- Modal -->
     <div id="myModal" class="modal" ng-controller="eventViewCtrl">
-        <!-- Panel -->
-        <!--<div class="container" id="infoMedia">
-            <div class="card">
-                <div class="card-header danger-color-dark white-text" id="mediaHeader">
-                    <strong>NotteTechno III</strong>
-                </div>
-                <div class="card-block">
-                    <p class="card-text" id="info"><strong>@mlnmtt</strong> Che festone!!!</p>
-                </div>
-            </div>
-        </div> -->
         <span class="close-cursor" ng-click="closeModal()">&times;</span>
         <div class="modal-content">
 
@@ -122,8 +112,6 @@
         <div id="spazioBottom" style="height: 103px"></div>
     </div>
 
-    <!--<script src="myModal.js"></script>
-
     <!-- Panel -->
     <div class="container" id="card" ng-controller="eventViewCtrl">
         <div class="card">
@@ -143,9 +131,6 @@
             <div class="scrollbox">
 
                 <img class="thumbnail" ng-repeat="content in dati.event.content" ng-src="{{content.url}}"  ng-click="openSingleModal()">
-                <!-- <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(5)">
-                <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(6)">
-                <img class="thumbnail" src="http://placehold.it/400x400" onclick="openModal();currentSlide(7)"> -->
 
                 <a class="thumbnail" ng-click="openSingleModal(); openNav()">
                     <button class="plusMedia">
@@ -172,69 +157,3 @@
         </div>
     </div>
 </div>
-   <!-- <script src="eventView/eventView.js"></script> -->
-
-<!-- chiudi blocco -->
-
-<!-- Gallery
-<div class="container" id="galleryContainer">
-    <div class="row" id="grid">
-        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x400" onclick="openGalleryModal();currentSlide(1)">
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x400" onclick="openGalleryModal();currentSlide(2)">
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x400" onclick="openGalleryModal();currentSlide(3)">
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" src="http://placehold.it/400x400" alt="">
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-3 col-xs-4 thumb">
-            <a class="thumbnail" href="#">
-                <button id="plusMedia">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </button>
-            </a>
-        </div>
-    </div>
-</div> -->

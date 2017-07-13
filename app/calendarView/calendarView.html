@@ -17,10 +17,11 @@
 </head>
 
 <body>
+    <!-- Calendario -->
     <div class="container blocco" id="calendarContainer">
         <calendar class="calen" selected="day" elenco-eventi="allEvents.elencoEventi"></calendar>
     </div>
-
+    <!-- Feste del giorno -->
     <div class="container" id="calResult">
         <div class="container thumbnail tall resultCal" ng-repeat="evento in allEvents.elencoEventi | filter: {'data' : day.format('DD/MM/YYYY')} : true">
             <div class="card" id="resultCal">

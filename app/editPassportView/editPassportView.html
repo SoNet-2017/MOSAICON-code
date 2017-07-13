@@ -1,4 +1,5 @@
 <div class="views login" ng-controller="editPassportCtrl as $ctrl">
+    <!-- Alert -->
     <div class="alert alert-danger alert-dismissible" role="alert" ng-if="dati.feedback">{{ dati.feedback }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -8,19 +9,16 @@
     <h1>Edit Passport</h1>
     <hr>
     <div class="row">
-        <!-- left column -->
+
         <div class="col-md-3">
             <div class="text-center">
                 <img src="{{dati.user.img_url}}" class="avatar img-circle" alt="avatar">
                 <h6>Upload a different photo...</h6>
             </div>
-                <form id="frmRegister" role="form" ng-submit="updatePassport()">
-                    <file-upload on-change="$ctrl.onChange">
-                    </file-upload>
-
-        <!-- edit form column -->
-            <h3>Personal info</h3>
-
+            <form id="frmRegister" role="form" ng-submit="updatePassport()">
+                <file-upload on-change="$ctrl.onChange"></file-upload>
+                <!-- edit form column -->
+                <h3>Personal info</h3>
 
                 <div class="form-group">
                     <label for="txtName">Name</label>
@@ -30,35 +28,28 @@
                     <label for="txtSurname">Surname</label>
                     <input type="text" class="form-control" id="txtSurname" name="surname" ng-model="dati.user.surname" />
                 </div>
-
                 <div class="form-group">
                     <label for="txtNickname">Nickname</label>
                     <input type="text" class="form-control" id="txtNickname" name="nickname" ng-model="dati.user.nickname" />
                 </div>
-
-                    <div class="form-group">
-                        <label for="txtAge">Age</label>
-                        <input type="text" class="form-control" id="txtAge" placeholder="age..." name="age" ng-model="dati.user.age" />
-                    </div>
-
+                <div class="form-group">
+                    <label for="txtAge">Age</label>
+                    <input type="text" class="form-control" id="txtAge" placeholder="age..." name="age" ng-model="dati.user.age" />
+                </div>
                 <div class="form-group">
                     <label for="txtCitta">City</label>
                     <input type="text" class="form-control" id="txtCitta" name="citta" ng-model="dati.user.citta" />
                 </div>
-
                 <div class="form-group">
                     <label for="txtInfos">Infos</label>
                     <textarea type="text" class="form-control" id="txtInfos" maxlength="150" name="infos" ng-model="dati.user.infos"></textarea>
                 </div>
-
                 <div class="form-group">
                     <button type="submit" id="save" class="btn btn-success loginBtn" ng-click="save">Save Changes</button>
                     <span></span>
                     <input type="reset" class="btn btn-default" value="Cancel">
                 </div>
             </form>
-            </div>
         </div>
     </div>
 </div>
-<hr>
