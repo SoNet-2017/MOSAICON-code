@@ -57,7 +57,7 @@ The menu is a typical social network app menu.
 
 </div>
 
-<h2>Third parts</h2>
+<h2>Third-party apps</h2>
 
 <div>
 <ul>
