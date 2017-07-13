@@ -23,22 +23,19 @@
                     </ng-map>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <div class="container" id="resultContainer" style="margin-top: 20px;">
-                <div class="row" id="grid">
-                    <div class="col-lg-3 col-md-3 col-xs-4 thumb tall eventGrid" ng-repeat="content in dati.content | filter: {'user_id' : dati.user_id} : true">
-                        <a class="thumbnail tall result" href="#!/eventView/{{content.event_id}}">
-                            <p class="nomeRicerca">{{content.comment}}</p>
-                            <img class="img-responsive thumb" ng-src="{{content.url}}">
-                            <p class="descrRicerca">{{content.like_count}} likes</p>
-                        </a>
-                    </div>
+        <div class="container">
+            <div class="row" id="grid">
+                <div ng-repeat="content in dati.content | filter: {'user_id' : dati.user_id} : true">
+                    <a href="#!/eventView/{{content.event_id}}">
+                        <p class="nomeRicerca">{{content.comment}}</p>
+                        <img class="img-responsive" ng-src="{{content.url}}" style="border: 1px solid firebrick">
+                        <p class="descrRicerca">{{content.like_count}} likes</p>
+                    </a>
                 </div>
             </div>
-
         </div>
-
     </div>
-    </div>
-
 </div>

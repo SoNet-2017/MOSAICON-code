@@ -6,16 +6,13 @@
                 <div class="page-header">
                     <h2 class="name">{{dati.user.name}} {{dati.user.surname}}</h2>
                 </div>
-                <div class="container-fluid">
-                    <h3>@{{dati.user.nickname}}</h3>
-                    <h4>Actually located in {{dati.user.citta}}</h4>
+                <div class="col-xs-6">
+                    <h5>@{{dati.user.nickname}}</h5>
+                    <h5>Town: {{dati.user.citta}}</h5>
                     <h5>Age: {{dati.user.age}}</h5>
-                    <h6>About me: <p>{{dati.user.infos}}</p></h6>
-                    <p>
-                        <span class="glyphicon glyphicon-envelope"></span> {{dati.user.email}}
-                    </p>
+                    <h5>About me: {{dati.user.infos}}</h5>
+                    <h5>E-mail: {{dati.user.email}}</h5>
                 </div>
-
                 <div class="col-xs-6">
                     <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}">
                         <ng-map class="Gmap PippoMap" center="{{dati.user.citta}}" zoom="5">
@@ -24,12 +21,12 @@
                     </div>
                 </div>
 
-                <div class="container" id="resultContainer" style="margin-top: 20px;">
+                <div class="container">
                     <div class="row" id="grid">
-                        <div class="col-lg-3 col-md-3 col-xs-4 thumb tall eventGrid" ng-repeat="content in dati.content | filter: {'user_id' : dati.user_id} : true">
-                            <a class="thumbnail tall result" href="#!/eventView/{{content.event_id}}">
+                        <div ng-repeat="content in dati.content | filter: {'user_id' : dati.user_id} : true">
+                            <a href="#!/eventView/{{content.event_id}}">
                                 <p class="nomeRicerca">{{content.comment}}</p>
-                                <img class="img-responsive thumb" ng-src="{{content.url}}">
+                                <img class="img-responsive" ng-src="{{content.url}}" style="border: 1px solid firebrick">
                                 <p class="descrRicerca">{{content.like_count}} likes</p>
                             </a>
                         </div>
