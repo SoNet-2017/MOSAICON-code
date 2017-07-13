@@ -31,7 +31,7 @@ angular.module('myApp.editPassportView', ['ngRoute'])
         $rootScope.dati.currentView = "passport";
 
         $scope.updatePassport = function() {
-            if ($scope.dati.user.name !== "" && $scope.dati.user.surname !== null && $scope.dati.user.email !== null && $scope.dati.user.nickname !== null && $scope.dati.user.age !== null && $scope.dati.user.citta !== null && $scope.dati.user.infos !== null) {
+            if ($scope.dati.user.name && $scope.dati.user.surname && $scope.dati.user.email && $scope.dati.user.nickname && $scope.dati.user.age && $scope.dati.user.citta && $scope.dati.user.infos) {
                 if ($scope.fileToUpload != null) {
                     //get the name of the file
                     var fileName = $scope.fileToUpload.name;
