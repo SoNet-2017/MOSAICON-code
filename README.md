@@ -4,6 +4,7 @@ Mosaicon is an AngularJS app integrated with Google Firebase, built as UI protot
 
 <h2>Get started</h2>
 Fork this GitHub project to yours or download and import it in your JavaScript IDE. Compile the index.html and try the app.
+<br/>The user interface is designed specifically for iPhone 6. With Google Chrome and its Developer Tools, you can set the actual interface model.
 
 <h2>Demo</h2>
 The demo view is a past event page with a innovative mediaplayer.
